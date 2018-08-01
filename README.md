@@ -1,4 +1,5 @@
 # Detectron with tensorboard
+This repository was forked from [Detectron with tensorboard](https://github.com/tfzhou/Detectron-with-tensorboard)
 
 I use [c2board](https://github.com/endernewton/c2board) to visualize some training info of Detectron in tensorboard. It dumps the training info in the output folder of Detectron by default.
 
