@@ -72,16 +72,16 @@ def parse_args():
         action='store_true'
     )
     parser.add_argument(
+        '--use_tfboard',
+        dest='use_tfboard',
+        help='Use tensorboard to log training info',
+        action='store_false'
+    )
+    parser.add_argument(
         'opts',
         help='See detectron/core/config.py for all options',
         default=None,
         nargs=argparse.REMAINDER
-    )
-    parser.add_argument(
-        '--use_tfboard',
-        dest='use_tfboard',
-        help='Use tensorboard to log training info',
-        action='store_true'
     )
     if len(sys.argv) == 1:
         parser.print_help()
