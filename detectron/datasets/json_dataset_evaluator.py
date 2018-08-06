@@ -124,7 +124,7 @@ def _do_segmentation_eval(json_dataset, res_file, output_dir):
 
 
 def evaluate_boxes(
-    json_dataset, all_boxes, output_dir, use_salt=True, cleanup=False
+    json_dataset, all_boxes, output_dir, use_salt=True, cleanup=False, checkpoint_iter=None, tblogger=None
 ):
     res_file = os.path.join(
         output_dir, 'bbox_' + json_dataset.name + '_results'
@@ -135,7 +135,7 @@ def evaluate_boxes(
     _write_coco_bbox_results_file(json_dataset, all_boxes, res_file)
     # Only do evaluation on non-test sets (annotations are undisclosed on test)
     if json_dataset.name.find('test') == -1:
-        coco_eval = _do_detection_eval(json_dataset, res_file, output_dir)
+        coco_eval = _do_detection_eval(json_dataset, res_file, output_dir, checkpoint_iter=checkpoint_iter, tblogger=tblogger)
     else:
         coco_eval = None
     # Optionally cleanup results json file
@@ -188,19 +188,19 @@ def _coco_bbox_results_one_category(json_dataset, boxes, cat_id):
     return results
 
 
-def _do_detection_eval(json_dataset, res_file, output_dir):
+def _do_detection_eval(json_dataset, res_file, output_dir, checkpoint_iter=None, tblogger=None):
     coco_dt = json_dataset.COCO.loadRes(str(res_file))
     coco_eval = COCOeval(json_dataset.COCO, coco_dt, 'bbox')
     coco_eval.evaluate()
     coco_eval.accumulate()
-    _log_detection_eval_metrics(json_dataset, coco_eval)
+    _log_detection_eval_metrics(json_dataset, coco_eval, checkpoint_iter=checkpoint_iter, tblogger=tblogger)
     eval_file = os.path.join(output_dir, 'detection_results.pkl')
     save_object(coco_eval, eval_file)
     logger.info('Wrote json eval results to: {}'.format(eval_file))
     return coco_eval
 
 
-def _log_detection_eval_metrics(json_dataset, coco_eval):
+def _log_detection_eval_metrics(json_dataset, coco_eval, checkpoint_iter=None, tblogger=None):
     def _get_thr_ind(coco_eval, thr):
         ind = np.where((coco_eval.params.iouThrs > thr - 1e-5) &
                        (coco_eval.params.iouThrs < thr + 1e-5))[0][0]
@@ -217,6 +217,15 @@ def _log_detection_eval_metrics(json_dataset, coco_eval):
     # max dets index 2: 100 per image
     precision = coco_eval.eval['precision'][ind_lo:(ind_hi + 1), :, :, 0, 2]
     ap_default = np.mean(precision[precision > -1])
+
+    recall = coco_eval.eval['recall'][ind_lo:(ind_hi + 1), :, 0, 2]
+    recall_default = np.mean(recall[recall > -1])
+    if tblogger:
+        tblogger.write_scalars({"average_precision": ap_default}, checkpoint_iter)
+        tblogger.write_scalars({"average_recall": recall_default}, checkpoint_iter)
+        # tb_log_stats(tblogger, ap_default, checkpoint_iter)
+        # tb_log_stats(tblogger, recall_default, checkpoint_iter)
+
     logger.info(
         '~~~~ Mean and per-category AP @ IoU=[{:.2f},{:.2f}] ~~~~'.format(
             IoU_lo_thresh, IoU_hi_thresh))
@@ -232,6 +241,14 @@ def _log_detection_eval_metrics(json_dataset, coco_eval):
     logger.info('~~~~ Summary metrics ~~~~')
     coco_eval.summarize()
 
+def tb_log_stats(tblogger, stats, cur_iter):
+    """Log the tracked statistics to tensorboard"""
+    for k in stats:
+        v = stats[k]
+        if isinstance(v, dict):
+            tb_log_stats(tblogger, v, cur_iter)
+        else:
+            tblogger.write_scalars({k: v}, cur_iter)
 
 def evaluate_box_proposals(
     json_dataset, roidb, thresholds=None, area='all', limit=None

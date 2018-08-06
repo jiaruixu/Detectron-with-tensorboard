@@ -3,6 +3,28 @@ This repository was forked from [Detectron with tensorboard](https://github.com/
 
 I use [c2board](https://github.com/endernewton/c2board) to visualize some training info of Detectron in tensorboard. It dumps the training info in the output folder of Detectron by default.
 
+# Visualize average precision
+
+visualize upperbound1
+
+```
+python2 tools/eval.py \
+	--cfg /mnt/fcav/self_training/object_detection/configs/e2e_faster_rcnn_X-101-64x4d-FPN_1x.yaml \
+	TEST.WEIGHTS /mnt/fcav/self_training/object_detection/upperbound1/train/voc_GTA_caronly_train:cityscapes_caronly_train:voc_GTA_caronly_val/generalized_rcnn \
+	NUM_GPUS 1 \
+	OUTPUT_DIR /mnt/fcav/self_training/object_detection/upperbound1/eval
+```
+
+visualize lower bound
+
+```
+python2 tools/eval.py \
+	--cfg /mnt/fcav/self_training/object_detection/configs/e2e_faster_rcnn_X-101-64x4d-FPN_1x_lowerbound.yaml \
+	TEST.WEIGHTS /mnt/fcav/self_training/object_detection/lowerbound/train/voc_GTA_caronly_train:voc_GTA_caronly_val/generalized_rcnn \
+	NUM_GPUS 1 \
+	OUTPUT_DIR /mnt/fcav/self_training/object_detection/lowerbound/eval
+```
+
 # Detectron
 
 Detectron is Facebook AI Research's software system that implements state-of-the-art object detection algorithms, including [Mask R-CNN](https://arxiv.org/abs/1703.06870). It is written in Python and powered by the [Caffe2](https://github.com/caffe2/caffe2) deep learning framework.

@@ -86,6 +86,8 @@ def run_inference(
     weights_file, ind_range=None,
     multi_gpu_testing=False, gpu_id=0,
     check_expected_results=False,
+    checkpoint_iter=None,
+    use_tfboard=None,
 ):
     parent_func, child_func = get_eval_functions()
     is_parent = ind_range is None
@@ -105,7 +107,9 @@ def run_inference(
                     dataset_name,
                     proposal_file,
                     output_dir,
-                    multi_gpu=multi_gpu_testing
+                    multi_gpu=multi_gpu_testing,
+                    checkpoint_iter=checkpoint_iter,
+                    use_tfboard=use_tfboard
                 )
                 all_results.update(results)
 
@@ -122,7 +126,7 @@ def run_inference(
                 proposal_file,
                 output_dir,
                 ind_range=ind_range,
-                gpu_id=gpu_id
+                gpu_id=gpu_id,
             )
 
     all_results = result_getter()
@@ -143,7 +147,9 @@ def test_net_on_dataset(
     proposal_file,
     output_dir,
     multi_gpu=False,
-    gpu_id=0
+    gpu_id=0,
+    checkpoint_iter=None,
+    use_tfboard=None
 ):
     """Run inference on a dataset."""
     dataset = JsonDataset(dataset_name)
@@ -155,13 +161,13 @@ def test_net_on_dataset(
             weights_file, dataset_name, proposal_file, num_images, output_dir
         )
     else:
-        all_boxes, all_segms, all_keyps = test_net(
-            weights_file, dataset_name, proposal_file, output_dir, gpu_id=gpu_id
+        all_boxes, all_segms, all_keyps, tblogger = test_net(
+            weights_file, dataset_name, proposal_file, output_dir, gpu_id=gpu_id, use_tfboard=use_tfboard
         )
     test_timer.toc()
     logger.info('Total inference time: {:.3f}s'.format(test_timer.average_time))
     results = task_evaluation.evaluate_all(
-        dataset, all_boxes, all_segms, all_keyps, output_dir
+        dataset, all_boxes, all_segms, all_keyps, output_dir, checkpoint_iter=checkpoint_iter, tblogger=tblogger if use_tfboard else None
     )
     return results
 
@@ -221,7 +227,8 @@ def test_net(
     proposal_file,
     output_dir,
     ind_range=None,
-    gpu_id=0
+    gpu_id=0,
+    use_tfboard=None
 ):
     """Run inference on all images in a dataset or over an index range of images
     in a dataset using a single GPU.
@@ -233,6 +240,12 @@ def test_net(
         dataset_name, proposal_file, ind_range
     )
     model = initialize_model_from_cfg(weights_file, gpu_id=gpu_id)
+
+    if use_tfboard:
+        from c2board.writer import SummaryWriter
+        tblogger = SummaryWriter(output_dir)
+        tblogger.write_graph(model)
+
     num_images = len(roidb)
     num_classes = cfg.MODEL.NUM_CLASSES
     all_boxes, all_segms, all_keyps = empty_results(num_classes, num_images)
@@ -318,7 +331,7 @@ def test_net(
         ), det_file
     )
     logger.info('Wrote detections to: {}'.format(os.path.abspath(det_file)))
-    return all_boxes, all_segms, all_keyps
+    return all_boxes, all_segms, all_keyps, tblogger if use_tfboard else None
 
 
 def initialize_model_from_cfg(weights_file, gpu_id=0):

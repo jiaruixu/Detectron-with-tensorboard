@@ -24,7 +24,8 @@ import os
 
 
 # Path to data dir
-_DATA_DIR = os.path.join(os.path.dirname(__file__), 'data')
+# _DATA_DIR = os.path.join(os.path.dirname(__file__), 'data')
+_DATA_DIR = '/mnt/fcav/self_training/object_detection/dataset'
 
 # Required dataset entry keys
 _IM_DIR = 'image_directory'
@@ -37,6 +38,38 @@ _RAW_DIR = 'raw_dir'
 
 # Available datasets
 _DATASETS = {
+    'voc_GTA_caronly_train':{
+        _IM_DIR:
+            _DATA_DIR + '/GTA_Pascal_format/JPEGImages',
+        _ANN_FN:
+            _DATA_DIR + '/GTA_Pascal_format/Annotations/instances_caronly_train.json',
+        _DEVKIT_DIR:
+            _DATA_DIR + '/GTA_Pascal_format/VOCdevkit2012'
+    },
+    'voc_GTA_caronly_val':{
+        _IM_DIR:
+            _DATA_DIR + '/GTA_Pascal_format/JPEGImages',
+        _ANN_FN:
+            _DATA_DIR + '/GTA_Pascal_format/Annotations/instances_caronly_val.json',
+        _DEVKIT_DIR:
+            _DATA_DIR + '/GTA_Pascal_format/VOCdevkit2012'
+    },
+    'cityscapes_caronly_train': {
+        _IM_DIR:
+            _DATA_DIR + '/cityscapes/images',
+        _ANN_FN:
+            _DATA_DIR + '/cityscapes/annotations/instancesonly_filtered_gtFine_train.json',
+        _RAW_DIR:
+            _DATA_DIR + '/cityscapes/raw'
+    },
+    'cityscapes_caronly_val': {
+        _IM_DIR:
+            _DATA_DIR + '/cityscapes/images',
+        _ANN_FN:
+            _DATA_DIR + '/cityscapes/annotations/instancesonly_filtered_gtFine_val.json',
+        _RAW_DIR:
+            _DATA_DIR + '/cityscapes/raw'
+    },
     'cityscapes_fine_instanceonly_seg_train': {
         _IM_DIR:
             _DATA_DIR + '/cityscapes/images',

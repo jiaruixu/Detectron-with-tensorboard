@@ -51,13 +51,13 @@ logger = logging.getLogger(__name__)
 
 
 def evaluate_all(
-    dataset, all_boxes, all_segms, all_keyps, output_dir, use_matlab=False
+    dataset, all_boxes, all_segms, all_keyps, output_dir, use_matlab=False, checkpoint_iter=None, tblogger=None
 ):
     """Evaluate "all" tasks, where "all" includes box detection, instance
     segmentation, and keypoint detection.
     """
     all_results = evaluate_boxes(
-        dataset, all_boxes, output_dir, use_matlab=use_matlab
+        dataset, all_boxes, output_dir, use_matlab=use_matlab, checkpoint_iter=checkpoint_iter, tblogger=tblogger
     )
     logger.info('Evaluating bounding boxes is done!')
     if cfg.MODEL.MASK_ON:
@@ -71,19 +71,19 @@ def evaluate_all(
     return all_results
 
 
-def evaluate_boxes(dataset, all_boxes, output_dir, use_matlab=False):
+def evaluate_boxes(dataset, all_boxes, output_dir, use_matlab=False, checkpoint_iter=None, tblogger=None):
     """Evaluate bounding box detection."""
     logger.info('Evaluating detections')
     not_comp = not cfg.TEST.COMPETITION_MODE
     if _use_json_dataset_evaluator(dataset):
         coco_eval = json_dataset_evaluator.evaluate_boxes(
-            dataset, all_boxes, output_dir, use_salt=not_comp, cleanup=not_comp
+            dataset, all_boxes, output_dir, use_salt=not_comp, cleanup=not_comp, checkpoint_iter=checkpoint_iter, tblogger=tblogger
         )
         box_results = _coco_eval_to_box_results(coco_eval)
     elif _use_cityscapes_evaluator(dataset):
         logger.warn('Cityscapes bbox evaluated using COCO metrics/conversions')
         coco_eval = json_dataset_evaluator.evaluate_boxes(
-            dataset, all_boxes, output_dir, use_salt=not_comp, cleanup=not_comp
+            dataset, all_boxes, output_dir, use_salt=not_comp, cleanup=not_comp, checkpoint_iter=checkpoint_iter, tblogger=tblogger
         )
         box_results = _coco_eval_to_box_results(coco_eval)
     elif _use_voc_evaluator(dataset):

@@ -3,7 +3,7 @@ MODEL:
   CONV_BODY: FPN.add_fpn_ResNet101_conv5_body
   NUM_CLASSES: 2
   FASTER_RCNN: True
-NUM_GPUS: 2
+NUM_GPUS: 4
 SOLVER:
   WEIGHT_DECAY: 0.0001
   LR_POLICY: steps_with_decay
@@ -28,7 +28,7 @@ FAST_RCNN:
   ROI_XFORM_SAMPLING_RATIO: 2
 TRAIN:
   WEIGHTS: https://s3-us-west-2.amazonaws.com/detectron/ImageNetPretrained/FBResNeXt/X-101-64x4d.pkl
-  DATASETS: ('voc_GTA_caronly_train', 'cityscapes_caronly_train', 'voc_GTA_caronly_val')
+  DATASETS: ('voc_GTA_caronly_train', 'voc_GTA_caronly_val')
   SCALES: (800,)
   MAX_SIZE: 2048
   IMS_PER_BATCH: 1
