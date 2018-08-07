@@ -25,6 +25,8 @@ import logging
 import numpy as np
 import os
 import uuid
+import pandas as pd
+import matplotlib.pyplot as plt
 
 from pycocotools.cocoeval import COCOeval
 
@@ -193,14 +195,14 @@ def _do_detection_eval(json_dataset, res_file, output_dir, checkpoint_iter=None,
     coco_eval = COCOeval(json_dataset.COCO, coco_dt, 'bbox')
     coco_eval.evaluate()
     coco_eval.accumulate()
-    _log_detection_eval_metrics(json_dataset, coco_eval, checkpoint_iter=checkpoint_iter, tblogger=tblogger)
+    _log_detection_eval_metrics(json_dataset, coco_eval, output_dir=output_dir, checkpoint_iter=checkpoint_iter, tblogger=tblogger)
     eval_file = os.path.join(output_dir, 'detection_results.pkl')
     save_object(coco_eval, eval_file)
     logger.info('Wrote json eval results to: {}'.format(eval_file))
     return coco_eval
 
 
-def _log_detection_eval_metrics(json_dataset, coco_eval, checkpoint_iter=None, tblogger=None):
+def _log_detection_eval_metrics(json_dataset, coco_eval, output_dir=None, checkpoint_iter=None, tblogger=None):
     def _get_thr_ind(coco_eval, thr):
         ind = np.where((coco_eval.params.iouThrs > thr - 1e-5) &
                        (coco_eval.params.iouThrs < thr + 1e-5))[0][0]
@@ -217,9 +219,110 @@ def _log_detection_eval_metrics(json_dataset, coco_eval, checkpoint_iter=None, t
     # max dets index 2: 100 per image
     precision = coco_eval.eval['precision'][ind_lo:(ind_hi + 1), :, :, 0, 2]
     ap_default = np.mean(precision[precision > -1])
-
     recall = coco_eval.eval['recall'][ind_lo:(ind_hi + 1), :, 0, 2]
     recall_default = np.mean(recall[recall > -1])
+
+    rec_thresh = coco_eval.params.recThrs.reshape(-1)
+    plt.figure()
+    writer = pd.ExcelWriter('%s/score_of_checkpoint%d(All_area).xlsx'% (output_dir, checkpoint_iter), engine='xlsxwriter')
+    for iou in range(ind_lo, ind_hi + 1):
+        pred_val = coco_eval.eval['precision'][iou, :, 0, 0, 2].reshape(-1)
+        plt.plot(rec_thresh, pred_val)
+        score = coco_eval.eval['scores'][iou, :, 0, 0, 2].reshape(-1)
+        df = pd.DataFrame({'Recall': rec_thresh,
+                           'Precision': pred_val,
+                           'Scores': score})
+        df.to_excel(writer, sheet_name="IoU_%.2f" % (0.50 + iou * 0.05))
+
+    writer.save()
+    plt.legend(['Iou = 0.50', 'Iou = 0.55', 'Iou = 0.60', 'Iou = 0.65', 'Iou = 0.70',
+                'Iou = 0.75', 'Iou = 0.80', 'Iou = 0.85', 'Iou = 0.90', 'Iou = 0.95'],
+               loc='lower left')
+    plt.xticks([0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0])
+    plt.yticks([0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0])
+    plt.grid(True)
+    plt.xlabel('recall')
+    plt.ylabel('precision')
+    plt.title('Precision-recall curve of checkpoint %d (All area)' % checkpoint_iter)
+    plt.savefig('%s/Precision-recall-curve-of-checkpoint%d(All area).png' % (output_dir, checkpoint_iter))
+    # plt.show()
+    plt.close()
+
+    plt.figure()
+    writer = pd.ExcelWriter('%s/score_of_checkpoint%d(small_area).xlsx' % (output_dir, checkpoint_iter),
+                            engine='xlsxwriter')
+    for iou in range(ind_lo, ind_hi + 1):
+        pred_val = coco_eval.eval['precision'][iou, :, 0, 1, 2].reshape(-1)
+        plt.plot(rec_thresh, pred_val)
+        score = coco_eval.eval['scores'][iou, :, 0, 1, 2].reshape(-1)
+        df = pd.DataFrame({'Recall': rec_thresh,
+                           'Precision': pred_val,
+                           'Scores': score})
+        df.to_excel(writer, sheet_name="IoU_%.2f" % (0.50 + iou * 0.05))
+
+    writer.save()
+    plt.legend(['Iou = 0.50', 'Iou = 0.55', 'Iou = 0.60', 'Iou = 0.65', 'Iou = 0.70',
+                'Iou = 0.75', 'Iou = 0.80', 'Iou = 0.85', 'Iou = 0.90', 'Iou = 0.95'],
+               loc='lower left')
+    plt.xticks([0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0])
+    plt.yticks([0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0])
+    plt.grid(True)
+    plt.xlabel('recall')
+    plt.ylabel('precision')
+    plt.title('Precision-recall curve of checkpoint %d (small area)' % checkpoint_iter)
+    plt.savefig('%s/Precision-recall-curve-of-checkpoint%d(small area).png' % (output_dir, checkpoint_iter))
+    plt.close()
+
+    plt.figure()
+    writer = pd.ExcelWriter('%s/score_of_checkpoint%d(medium_area).xlsx' % (output_dir, checkpoint_iter),
+                            engine='xlsxwriter')
+    for iou in range(ind_lo, ind_hi + 1):
+        pred_val = coco_eval.eval['precision'][iou, :, 0, 2, 2].reshape(-1)
+        plt.plot(rec_thresh, pred_val)
+        score = coco_eval.eval['scores'][iou, :, 0, 2, 2].reshape(-1)
+        df = pd.DataFrame({'Recall': rec_thresh,
+                           'Precision': pred_val,
+                           'Scores': score})
+        df.to_excel(writer, sheet_name="IoU_%.2f" % (0.50 + iou * 0.05))
+
+    writer.save()
+    plt.legend(['Iou = 0.50', 'Iou = 0.55', 'Iou = 0.60', 'Iou = 0.65', 'Iou = 0.70',
+                'Iou = 0.75', 'Iou = 0.80', 'Iou = 0.85', 'Iou = 0.90', 'Iou = 0.95'],
+               loc='lower left')
+    plt.xticks([0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0])
+    plt.yticks([0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0])
+    plt.grid(True)
+    plt.xlabel('recall')
+    plt.ylabel('precision')
+    plt.title('Precision-recall curve of checkpoint %d (medium area)' % checkpoint_iter)
+    plt.savefig('%s/Precision-recall-curve-of-checkpoint%d(medium area).png' % (output_dir, checkpoint_iter))
+    plt.close()
+
+    plt.figure()
+    writer = pd.ExcelWriter('%s/score_of_checkpoint%d(large_area).xlsx' % (output_dir, checkpoint_iter),
+                            engine='xlsxwriter')
+    for iou in range(ind_lo, ind_hi + 1):
+        pred_val = coco_eval.eval['precision'][iou, :, 0, 3, 2].reshape(-1)
+        plt.plot(rec_thresh, pred_val)
+        score = coco_eval.eval['scores'][iou, :, 0, 3, 2].reshape(-1)
+        df = pd.DataFrame({'Recall': rec_thresh,
+                           'Precision': pred_val,
+                           'Scores': score})
+        df.to_excel(writer, sheet_name="IoU_%.2f" % (0.50 + iou * 0.05))
+
+    writer.save()
+    plt.legend(['Iou = 0.50', 'Iou = 0.55', 'Iou = 0.60', 'Iou = 0.65', 'Iou = 0.70',
+                'Iou = 0.75', 'Iou = 0.80', 'Iou = 0.85', 'Iou = 0.90', 'Iou = 0.95'],
+               loc='lower left')
+    plt.xticks([0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0])
+    plt.yticks([0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0])
+    plt.grid(True)
+    plt.xlabel('recall')
+    plt.ylabel('precision')
+    plt.title('Precision-recall curve of checkpoint %d (large area)' % checkpoint_iter)
+    plt.savefig('%s/Precision-recall-curve-of-checkpoint%d(large area).png' % (output_dir, checkpoint_iter))
+    plt.close()
+
     if tblogger:
         tblogger.write_scalars({"average_precision": ap_default}, checkpoint_iter)
         tblogger.write_scalars({"average_recall": recall_default}, checkpoint_iter)
