@@ -12,6 +12,7 @@ import sys
 import time
 import re
 
+from copy import deepcopy
 from caffe2.python import workspace
 
 from detectron.core.config import assert_and_infer_cfg
@@ -27,6 +28,9 @@ c2_utils.import_detectron_ops()
 # OpenCL may be enabled by default in OpenCV3; disable it because it's not
 # thread safe and causes unwanted GPU memory allocations.
 cv2.ocl.setUseOpenCL(False)
+
+# gloabl value
+file_processed = []
 
 def parse_args():
     parser = argparse.ArgumentParser(description='Test a Fast R-CNN network')
@@ -78,6 +82,41 @@ def parse_args():
         sys.exit(1)
     return parser.parse_args()
 
+def checkNewCheckpoint(args, cfg, logger):
+    global file_processed
+    while 1:
+        output_dir = cfg.TEST.WEIGHTS
+        files = os.listdir(output_dir)
+        file_not_processed = list(set(files).difference(set(file_processed)))
+        if len(file_not_processed) != 0:
+            logger.info('{} evaluating...'.format(time.ctime()))
+            eval(args, cfg, logger, file_not_processed)
+            file_processed = deepcopy(files)
+
+        logger.info('{} waiting for new checkpoint...'.format(time.ctime()))
+        time.sleep(1520)
+
+def eval(args, cfg, logger, files):
+    for f in files:
+        iter_string = re.findall(r'(?<=model_iter)\d+(?=\.pkl)', f)
+        if len(iter_string) > 0:  ## and (int(iter_string[0]) == 34999):
+            checkpoint_iter = int(iter_string[0])
+            resume_weights_file = f
+            weights_file = os.path.join(cfg.TEST.WEIGHTS, resume_weights_file)
+            logger.info(
+                '========> Resuming from checkpoint {} at iter {}'.
+                    format(weights_file, checkpoint_iter)
+            )
+
+            run_inference(
+                weights_file,
+                ind_range=args.range,
+                multi_gpu_testing=args.multi_gpu_testing,
+                check_expected_results=True,
+                checkpoint_iter=checkpoint_iter,
+                use_tfboard=args.use_tfboard if args.use_tfboard else None,
+            )
+
 
 if __name__ == '__main__':
     workspace.GlobalInit(['caffe2', '--caffe2_log_level=0'])
@@ -93,27 +132,4 @@ if __name__ == '__main__':
     logger.info('Testing with config:')
     logger.info(pprint.pformat(cfg))
 
-    # output_dir = get_output_dir(cfg.TRAIN.DATASETS, training=True)
-    # output_dir = '/mnt/fcav/self_training/object_detection/upperbound1/train1/voc_GTA_caronly_train:cityscapes_caronly_train:voc_GTA_caronly_val/generalized_rcnn'
-    output_dir = cfg.TEST.WEIGHTS
-    files = os.listdir(output_dir)
-    for f in files:
-        iter_string = re.findall(r'(?<=model_iter)\d+(?=\.pkl)', f)
-        if len(iter_string) > 0:  ## and (int(iter_string[0]) == 34999):
-            checkpoint_iter = int(iter_string[0])
-            resume_weights_file = f
-            weights_file = os.path.join(output_dir, resume_weights_file)
-            logger.info(
-                '========> Resuming from checkpoint {} at iter {}'.
-                    format(weights_file, checkpoint_iter)
-            )
-
-            run_inference(
-                weights_file,
-                ind_range=args.range,
-                multi_gpu_testing=args.multi_gpu_testing,
-                check_expected_results=True,
-                checkpoint_iter=checkpoint_iter,
-                use_tfboard=args.use_tfboard if args.use_tfboard else None,
-            )
-
+    checkNewCheckpoint(args, cfg, logger)

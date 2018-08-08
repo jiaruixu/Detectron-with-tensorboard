@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ed5b3b6f-0e07-4da7-8222-4496fb35c393" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/detectron/datasets/dataset_catalog.py" beforeDir="false" afterPath="$PROJECT_DIR$/detectron/datasets/dataset_catalog.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/detectron/datasets/json_dataset_evaluator.py" beforeDir="false" afterPath="$PROJECT_DIR$/detectron/datasets/json_dataset_evaluator.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools/eval.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/eval.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/test_net.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/test_net.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/visualize_results.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/visualize_results.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,7 +17,7 @@
     <SUITE FILE_PATH="coverage/Detectron_with_tensorboard$train_net.coverage" NAME="train_net Coverage Results" MODIFIED="1533165451250" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" />
     <SUITE FILE_PATH="coverage/Detectron_with_tensorboard$test_net.coverage" NAME="test_net Coverage Results" MODIFIED="1533742244213" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" />
     <SUITE FILE_PATH="coverage/Detectron_with_tensorboard$prediction_to_coco_format.coverage" NAME="prediction_to_coco_format Coverage Results" MODIFIED="1533761262965" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" />
-    <SUITE FILE_PATH="coverage/Detectron_with_tensorboard$eval.coverage" NAME="eval Coverage Results" MODIFIED="1533741542455" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" />
+    <SUITE FILE_PATH="coverage/Detectron_with_tensorboard$eval.coverage" NAME="eval Coverage Results" MODIFIED="1533767170582" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" />
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -50,7 +45,7 @@
         <counts>
           <entry key="gitignore" value="1" />
           <entry key="png" value="1" />
-          <entry key="py" value="39" />
+          <entry key="py" value="40" />
           <entry key="yaml" value="4" />
         </counts>
       </usages-collector>
@@ -58,19 +53,19 @@
         <counts>
           <entry key="Image" value="1" />
           <entry key="PLAIN_TEXT" value="1" />
-          <entry key="Python" value="39" />
+          <entry key="Python" value="40" />
           <entry key="YAML" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="4479" />
+          <entry key="py" value="5018" />
           <entry key="yaml" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="4479" />
+          <entry key="Python" value="5018" />
           <entry key="YAML" value="1" />
         </counts>
       </usages-collector>
@@ -187,23 +182,24 @@
       </split-first>
       <split-second>
         <leaf>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/tools/eval.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="2185">
-                  <caret line="115" column="16" selection-start-line="115" selection-start-column="16" selection-end-line="115" selection-end-column="48" />
+                <state relative-caret-position="379">
+                  <caret line="104" column="19" lean-forward="true" selection-start-line="104" selection-start-column="19" selection-end-line="104" selection-end-column="19" />
                   <folding>
                     <element signature="e#41#79#0" expanded="true" />
+                    <marker date="1533767120363" expanded="true" signature="2866:3698" ph="..." />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/tools/prediction_to_coco_format.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="631">
-                  <caret line="101" selection-start-line="101" selection-end-line="101" />
+                <state relative-caret-position="931">
+                  <caret line="49" column="4" lean-forward="true" selection-start-line="49" selection-start-column="4" selection-end-line="49" selection-end-column="11" />
                   <folding>
                     <element signature="e#0#38#0" expanded="true" />
                     <marker date="1533761220284" expanded="true" signature="252:1356" ph="..." />
@@ -215,8 +211,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/detectron/core/test_engine.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="258">
-                  <caret line="269" column="65" selection-start-line="269" selection-start-column="52" selection-end-line="269" selection-end-column="65" />
+                <state relative-caret-position="202">
+                  <caret line="53" selection-start-line="53" selection-end-line="53" />
                   <folding>
                     <element signature="e#732#770#0" expanded="true" />
                   </folding>
@@ -294,7 +290,6 @@
       <find>threshold</find>
       <find>TEST.BBOX_REG</find>
       <find>thresh</find>
-      <find>im_detect_all</find>
       <find>all_boxes</find>
       <find>im_detect_bbox</find>
       <find>vis</find>
@@ -306,6 +301,8 @@
       <find>evaluate_boxes</find>
       <find>annotation_id</find>
       <find>argparse</find>
+      <find>workspace</find>
+      <find>im_detect_all</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -319,12 +316,12 @@
         <option value="$PROJECT_DIR$/detectron/datasets/task_evaluation.py" />
         <option value="$PROJECT_DIR$/detectron/core/test_engine.py" />
         <option value="/mnt/data/object_detection/COCO/view_jason_results.py" />
-        <option value="$PROJECT_DIR$/tools/eval.py" />
         <option value="$PROJECT_DIR$/tools/test_net.py" />
         <option value="$PROJECT_DIR$/detectron/datasets/json_dataset_evaluator.py" />
         <option value="$PROJECT_DIR$/detectron/utils/vis.py" />
         <option value="$PROJECT_DIR$/tools/visualize_results.py" />
         <option value="$PROJECT_DIR$/tools/prediction_to_coco_format.py" />
+        <option value="$PROJECT_DIR$/tools/eval.py" />
       </list>
     </option>
   </component>
@@ -391,6 +388,13 @@
               <item name="detectron" type="462c0819:PsiDirectoryNode" />
               <item name="utils" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Detectron-with-tensorboard" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; Python 2.7 &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="Detectron-with-tensorboard" type="462c0819:PsiDirectoryNode" />
+              <item name="tools" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -439,7 +443,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.prediction_to_coco_format">
+  <component name="RunManager" selected="Python.eval">
     <configuration name="eval" type="PythonConfigurationType" factoryName="Python">
       <module name="Detectron-with-tensorboard" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -623,7 +627,7 @@
     <editor active="true" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20095694" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20095694" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
@@ -634,7 +638,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49940193" weight="0.3808025" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.45476004" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.45476004" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -664,16 +668,46 @@
           <line>6</line>
           <option name="timeStamp" value="12" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/tools/eval.py</url>
-          <line>103</line>
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateCodeFragment">
+      <expression>
+        <expression-string>file = sorted(files)
+iter_string = re.findall(r'(?&lt;=model_iter)\d+(?=\.pkl)', file[0])</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>file = sorted(files)</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>files.append('new_file')</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>file_processed = []
+a = list(set(files).difference(set(file_processed)))
+len(a)</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>file_processed = []
+a = list(set(files).difference(set(file_processed)))</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>file_processed = []
+list(set(files).difference(set(file_processed)))</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>pred_set.add(0)</expression-string>
         <language-id>Python</language-id>
@@ -686,40 +720,6 @@
       </expression>
       <expression>
         <expression-string>pre_set.add(0)</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>len(set([pre['image_id'] for ind, pre in enumerate(prediction)]))</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>len(set([pre['image_id'] for ind, pre in prediction]))</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>set1 = set([])
-set1.add(annotation['image_id'])</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>set1 = set([1])
-set1.add(annotation['image_id'])</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>set1 = set()
-set1.add(annotation['image_id'])</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>set1 = {}
-set1.add(annotation['image_id'])</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
@@ -889,16 +889,6 @@ dict.pop('seg_file_name')</expression-string>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/detectron/core/test_engine.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
-          <caret line="269" column="65" selection-start-line="269" selection-start-column="52" selection-end-line="269" selection-end-column="65" />
-          <folding>
-            <element signature="e#732#770#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///usr/lib/python2.7/ctypes/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="250">
@@ -943,16 +933,6 @@ dict.pop('seg_file_name')</expression-string>
           <caret line="117" column="19" lean-forward="true" selection-start-line="117" selection-start-column="19" selection-end-line="117" selection-end-column="19" />
           <folding>
             <element signature="e#991#1029#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/eval.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2185">
-          <caret line="115" column="16" selection-start-line="115" selection-start-column="16" selection-end-line="115" selection-end-column="48" />
-          <folding>
-            <element signature="e#41#79#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1026,11 +1006,32 @@ dict.pop('seg_file_name')</expression-string>
     </entry>
     <entry file="file://$PROJECT_DIR$/tools/prediction_to_coco_format.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="631">
-          <caret line="101" selection-start-line="101" selection-end-line="101" />
+        <state relative-caret-position="931">
+          <caret line="49" column="4" lean-forward="true" selection-start-line="49" selection-start-column="4" selection-end-line="49" selection-end-column="11" />
           <folding>
             <element signature="e#0#38#0" expanded="true" />
             <marker date="1533761220284" expanded="true" signature="252:1356" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/detectron/core/test_engine.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="53" selection-start-line="53" selection-end-line="53" />
+          <folding>
+            <element signature="e#732#770#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/eval.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="379">
+          <caret line="104" column="19" lean-forward="true" selection-start-line="104" selection-start-column="19" selection-end-line="104" selection-end-column="19" />
+          <folding>
+            <element signature="e#41#79#0" expanded="true" />
+            <marker date="1533767120363" expanded="true" signature="2866:3698" ph="..." />
           </folding>
         </state>
       </provider>

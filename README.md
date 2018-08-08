@@ -1,9 +1,9 @@
-# Detectron with tensorboard
+## Detectron with tensorboard
 This repository was forked from [Detectron with tensorboard](https://github.com/tfzhou/Detectron-with-tensorboard)
 
 I use [c2board](https://github.com/endernewton/c2board) to visualize some training info of Detectron in tensorboard. It dumps the training info in the output folder of Detectron by default.
 
-# Visualize average precision
+## Visualize average precision
 
 visualize upperbound1
 
@@ -25,39 +25,49 @@ python2 tools/eval.py \
 	OUTPUT_DIR /mnt/fcav/self_training/object_detection/lowerbound/eval
 ```
 
+visualize baseline
+
+```
+python2 tools/eval.py \
+	--cfg /mnt/fcav/self_training/object_detection/configs/e2e_faster_rcnn_X-101-64x4d-FPN_1x_baseline.yaml \
+	TEST.WEIGHTS /mnt/fcav/self_training/object_detection/baseline/train/voc_GTA_caronly_train:cityscapes_caronly_train_with_prediction:voc_GTA_caronly_val/generalized_rcnn \
+	NUM_GPUS 1 \
+	OUTPUT_DIR /mnt/fcav/self_training/object_detection/baseline/eval
+```
+
 The modified version of eval.py will also plot the **precision-recall curve** and save the **corresponding scores** into an excel.
 
-# Prediction
+## Prediction
 
 ```
 python2 tools/test_net.py \
-    --cfg /mnt/fcav/self_training/object_detection/configs/e2e_faster_rcnn_X-101-64x4d-FPN_1x_lowerbound_prediction.yaml \
-		--vis \
-    TEST.WEIGHTS /mnt/fcav/self_training/object_detection/lowerbound/train/voc_GTA_caronly_train:voc_GTA_caronly_val/generalized_rcnn/model_iter34999.pkl \
-    NUM_GPUS 1 \
-    OUTPUT_DIR /mnt/fcav/self_training/object_detection/lowerbound/prediction_on_cityscapes_train
+  --cfg /mnt/fcav/self_training/object_detection/configs/e2e_faster_rcnn_X-101-64x4d-FPN_1x_lowerbound_prediction.yaml \
+	--vis \
+  TEST.WEIGHTS /mnt/fcav/self_training/object_detection/lowerbound/train/voc_GTA_caronly_train:voc_GTA_caronly_val/generalized_rcnn/model_iter34999.pkl \
+  NUM_GPUS 1 \
+  OUTPUT_DIR /mnt/fcav/self_training/object_detection/lowerbound/prediction_on_cityscapes_train
 ```
 
 Visualize
 
 ```
 python2 tools/visualize_results.py \
-		--dataset cityscapes_caronly_train \
-		--detections /mnt/fcav/self_training/object_detection/lowerbound/prediction_on_cityscapes_train/test/cityscapes_caronly_train/generalized_rcnn/detections.pkl \
-		--thresh 0.96 \
-		--output-dir /mnt/fcav/self_training/object_detection/lowerbound/prediction_on_cityscapes_train
+	--dataset cityscapes_caronly_train \
+	--detections /mnt/fcav/self_training/object_detection/lowerbound/prediction_on_cityscapes_train/test/cityscapes_caronly_train/generalized_rcnn/detections.pkl \
+	--thresh 0.96 \
+	--output-dir /mnt/fcav/self_training/object_detection/lowerbound/prediction_on_cityscapes_train
 ```
-# transfer prediction to coco format
+## transfer prediction to coco format
 
 ```
 python2 tools/prediction_to_coco_format.py \
-		--gt-dir /mnt/fcav/self_training/object_detection/dataset/cityscapes/annotations/instancesonly_filtered_gtFine_train.json \
-		--prediction-dir /mnt/fcav/self_training/object_detection/lowerbound/prediction_on_cityscapes_train/bbox_cityscapes_caronly_train_results.json \
-		--output-dir /mnt/fcav/self_training/object_detection/lowerbound/prediction_on_cityscapes_train \
-		--thresh 0.96
+	--gt-dir /mnt/fcav/self_training/object_detection/dataset/cityscapes/annotations/instancesonly_filtered_gtFine_train.json \
+	--prediction-dir /mnt/fcav/self_training/object_detection/lowerbound/prediction_on_cityscapes_train/bbox_cityscapes_caronly_train_results.json \
+	--output-dir /mnt/fcav/self_training/object_detection/lowerbound/prediction_on_cityscapes_train \
+	--thresh 0.96
 ```
 
-# Detectron
+## Detectron
 
 Detectron is Facebook AI Research's software system that implements state-of-the-art object detection algorithms, including [Mask R-CNN](https://arxiv.org/abs/1703.06870). It is written in Python and powered by the [Caffe2](https://github.com/caffe2/caffe2) deep learning framework.
 
