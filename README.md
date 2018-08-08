@@ -1,7 +1,7 @@
 ## Detectron with tensorboard
 This repository was forked from [Detectron with tensorboard](https://github.com/tfzhou/Detectron-with-tensorboard)
 
-I use [c2board](https://github.com/endernewton/c2board) to visualize some training info of Detectron in tensorboard. It dumps the training info in the output folder of Detectron by default.
+This repository use [c2board](https://github.com/endernewton/c2board) to visualize some training info of Detectron in tensorboard. It dumps the training info in the output folder of Detectron by default.
 
 ## Visualize average precision
 
@@ -39,6 +39,8 @@ The modified version of eval.py will also plot the **precision-recall curve** an
 
 ## Prediction
 
+predict with lowerbound
+
 ```
 python2 tools/test_net.py \
   --cfg /mnt/fcav/self_training/object_detection/configs/e2e_faster_rcnn_X-101-64x4d-FPN_1x_lowerbound_prediction.yaml \
@@ -48,7 +50,7 @@ python2 tools/test_net.py \
   OUTPUT_DIR /mnt/fcav/self_training/object_detection/lowerbound/prediction_on_cityscapes_train
 ```
 
-Visualize
+visualize prediction
 
 ```
 python2 tools/visualize_results.py \
@@ -57,7 +59,9 @@ python2 tools/visualize_results.py \
 	--thresh 0.96 \
 	--output-dir /mnt/fcav/self_training/object_detection/lowerbound/prediction_on_cityscapes_train
 ```
-## transfer prediction to coco format
+## Transfer prediction to coco format
+
+Predictions are saved as list in json format. This scipt transfer predictions with score >= 0.96 to json format.
 
 ```
 python2 tools/prediction_to_coco_format.py \
