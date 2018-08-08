@@ -28,6 +28,7 @@ import os
 import pprint
 import sys
 import time
+import re
 
 from caffe2.python import workspace
 
@@ -109,9 +110,17 @@ if __name__ == '__main__':
         logger.info('Waiting for \'{}\' to exist...'.format(cfg.TEST.WEIGHTS))
         time.sleep(10)
 
+    checkpoint_name = os.path.basename(cfg.TEST.WEIGHTS)
+    iter_string = re.findall(r'(?<=model_iter)\d+(?=\.pkl)', checkpoint_name)
+    if len(iter_string) != 0:
+        checkpoint_iter = int(iter_string[0])
+    else:
+        checkpoint_iter = None
+
     run_inference(
         cfg.TEST.WEIGHTS,
         ind_range=args.range,
         multi_gpu_testing=args.multi_gpu_testing,
         check_expected_results=True,
+        checkpoint_iter=checkpoint_iter,
     )

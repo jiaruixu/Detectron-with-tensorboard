@@ -70,6 +70,14 @@ _DATASETS = {
         _RAW_DIR:
             _DATA_DIR + '/cityscapes/raw'
     },
+    'cityscapes_caronly_train_with_prediction': {
+        _IM_DIR:
+            _DATA_DIR + '/cityscapes/images',
+        _ANN_FN:
+            _DATA_DIR + '/cityscapes/annotations/instances_caronly_train_with_prediction.json',
+        _RAW_DIR:
+            _DATA_DIR + '/cityscapes/raw'
+    },
     'cityscapes_fine_instanceonly_seg_train': {
         _IM_DIR:
             _DATA_DIR + '/cityscapes/images',

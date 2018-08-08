@@ -224,7 +224,7 @@ def _log_detection_eval_metrics(json_dataset, coco_eval, output_dir=None, checkp
 
     rec_thresh = coco_eval.params.recThrs.reshape(-1)
     plt.figure()
-    writer = pd.ExcelWriter('%s/score_of_checkpoint%d(All_area).xlsx'% (output_dir, checkpoint_iter), engine='xlsxwriter')
+    writer = pd.ExcelWriter('{}/score_of_checkpoint{}(All_area).xlsx'.format(output_dir, checkpoint_iter), engine='xlsxwriter')
     for iou in range(ind_lo, ind_hi + 1):
         pred_val = coco_eval.eval['precision'][iou, :, 0, 0, 2].reshape(-1)
         plt.plot(rec_thresh, pred_val)
@@ -243,13 +243,13 @@ def _log_detection_eval_metrics(json_dataset, coco_eval, output_dir=None, checkp
     plt.grid(True)
     plt.xlabel('recall')
     plt.ylabel('precision')
-    plt.title('Precision-recall curve of checkpoint %d (All area)' % checkpoint_iter)
-    plt.savefig('%s/Precision-recall-curve-of-checkpoint%d(All area).png' % (output_dir, checkpoint_iter))
+    plt.title('Precision-recall curve of checkpoint {} (All area)'.format(checkpoint_iter))
+    plt.savefig('{}/Precision-recall-curve-of-checkpoint{}(All area).png'.format(output_dir, checkpoint_iter))
     # plt.show()
     plt.close()
 
     plt.figure()
-    writer = pd.ExcelWriter('%s/score_of_checkpoint%d(small_area).xlsx' % (output_dir, checkpoint_iter),
+    writer = pd.ExcelWriter('{}/score_of_checkpoint{}(small_area).xlsx'.format(output_dir, checkpoint_iter),
                             engine='xlsxwriter')
     for iou in range(ind_lo, ind_hi + 1):
         pred_val = coco_eval.eval['precision'][iou, :, 0, 1, 2].reshape(-1)
@@ -269,12 +269,12 @@ def _log_detection_eval_metrics(json_dataset, coco_eval, output_dir=None, checkp
     plt.grid(True)
     plt.xlabel('recall')
     plt.ylabel('precision')
-    plt.title('Precision-recall curve of checkpoint %d (small area)' % checkpoint_iter)
-    plt.savefig('%s/Precision-recall-curve-of-checkpoint%d(small area).png' % (output_dir, checkpoint_iter))
+    plt.title('Precision-recall curve of checkpoint {} (small area)'.format(checkpoint_iter))
+    plt.savefig('{}/Precision-recall-curve-of-checkpoint{}(small area).png'.format(output_dir, checkpoint_iter))
     plt.close()
 
     plt.figure()
-    writer = pd.ExcelWriter('%s/score_of_checkpoint%d(medium_area).xlsx' % (output_dir, checkpoint_iter),
+    writer = pd.ExcelWriter('{}/score_of_checkpoint{}(medium_area).xlsx'.format(output_dir, checkpoint_iter),
                             engine='xlsxwriter')
     for iou in range(ind_lo, ind_hi + 1):
         pred_val = coco_eval.eval['precision'][iou, :, 0, 2, 2].reshape(-1)
@@ -294,12 +294,12 @@ def _log_detection_eval_metrics(json_dataset, coco_eval, output_dir=None, checkp
     plt.grid(True)
     plt.xlabel('recall')
     plt.ylabel('precision')
-    plt.title('Precision-recall curve of checkpoint %d (medium area)' % checkpoint_iter)
-    plt.savefig('%s/Precision-recall-curve-of-checkpoint%d(medium area).png' % (output_dir, checkpoint_iter))
+    plt.title('Precision-recall curve of checkpoint {} (medium area)'.format(checkpoint_iter))
+    plt.savefig('{}/Precision-recall-curve-of-checkpoint{}(medium area).png'.format(output_dir, checkpoint_iter))
     plt.close()
 
     plt.figure()
-    writer = pd.ExcelWriter('%s/score_of_checkpoint%d(large_area).xlsx' % (output_dir, checkpoint_iter),
+    writer = pd.ExcelWriter('{}/score_of_checkpoint{}(large_area).xlsx'.format(output_dir, checkpoint_iter),
                             engine='xlsxwriter')
     for iou in range(ind_lo, ind_hi + 1):
         pred_val = coco_eval.eval['precision'][iou, :, 0, 3, 2].reshape(-1)
@@ -319,8 +319,8 @@ def _log_detection_eval_metrics(json_dataset, coco_eval, output_dir=None, checkp
     plt.grid(True)
     plt.xlabel('recall')
     plt.ylabel('precision')
-    plt.title('Precision-recall curve of checkpoint %d (large area)' % checkpoint_iter)
-    plt.savefig('%s/Precision-recall-curve-of-checkpoint%d(large area).png' % (output_dir, checkpoint_iter))
+    plt.title('Precision-recall curve of checkpoint {} (large area)'.format(checkpoint_iter))
+    plt.savefig('{}/Precision-recall-curve-of-checkpoint{}(large area).png'.format(output_dir, checkpoint_iter))
     plt.close()
 
     if tblogger:

@@ -25,16 +25,36 @@ python2 tools/eval.py \
 	OUTPUT_DIR /mnt/fcav/self_training/object_detection/lowerbound/eval
 ```
 
-The modified version of eval.py will also plot the *precision-recall curve* and save the *corresponding scores* into an excel.
+The modified version of eval.py will also plot the **precision-recall curve** and save the **corresponding scores** into an excel.
 
 # Prediction
 
 ```
 python2 tools/test_net.py \
     --cfg /mnt/fcav/self_training/object_detection/configs/e2e_faster_rcnn_X-101-64x4d-FPN_1x_lowerbound_prediction.yaml \
+		--vis \
     TEST.WEIGHTS /mnt/fcav/self_training/object_detection/lowerbound/train/voc_GTA_caronly_train:voc_GTA_caronly_val/generalized_rcnn/model_iter34999.pkl \
-    NUM_GPUS 2 \
+    NUM_GPUS 1 \
     OUTPUT_DIR /mnt/fcav/self_training/object_detection/lowerbound/prediction_on_cityscapes_train
+```
+
+Visualize
+
+```
+python2 tools/visualize_results.py \
+		--dataset cityscapes_caronly_train \
+		--detections /mnt/fcav/self_training/object_detection/lowerbound/prediction_on_cityscapes_train/test/cityscapes_caronly_train/generalized_rcnn/detections.pkl \
+		--thresh 0.96 \
+		--output-dir /mnt/fcav/self_training/object_detection/lowerbound/prediction_on_cityscapes_train
+```
+# transfer prediction to coco format
+
+```
+python2 tools/prediction_to_coco_format.py \
+		--gt-dir /mnt/fcav/self_training/object_detection/dataset/cityscapes/annotations/instancesonly_filtered_gtFine_train.json \
+		--prediction-dir /mnt/fcav/self_training/object_detection/lowerbound/prediction_on_cityscapes_train/bbox_cityscapes_caronly_train_results.json \
+		--output-dir /mnt/fcav/self_training/object_detection/lowerbound/prediction_on_cityscapes_train \
+		--thresh 0.96
 ```
 
 # Detectron

@@ -99,7 +99,7 @@ if __name__ == '__main__':
     files = os.listdir(output_dir)
     for f in files:
         iter_string = re.findall(r'(?<=model_iter)\d+(?=\.pkl)', f)
-        if len(iter_string) > 0:  # and (int(iter_string[0]) == 34999):
+        if len(iter_string) > 0:  ## and (int(iter_string[0]) == 34999):
             checkpoint_iter = int(iter_string[0])
             resume_weights_file = f
             weights_file = os.path.join(output_dir, resume_weights_file)

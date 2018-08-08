@@ -17,11 +17,6 @@
 
 """Script for visualizing results saved in a detections.pkl file."""
 
-from __future__ import absolute_import
-from __future__ import division
-from __future__ import print_function
-from __future__ import unicode_literals
-
 import argparse
 import cPickle as pickle
 import cv2
@@ -42,7 +37,7 @@ def parse_args():
         '--dataset',
         dest='dataset',
         help='dataset',
-        default='coco_2014_minival',
+        default='cityscapes_caronly_train',
         type=str
     )
     parser.add_argument(
@@ -56,7 +51,7 @@ def parse_args():
         '--thresh',
         dest='thresh',
         help='detection prob threshold',
-        default=0.9,
+        default=0.96,
         type=float
     )
     parser.add_argument(
@@ -128,6 +123,7 @@ def vis(dataset, detections_pkl, thresh, output_dir, limit=0):
             keypoints=cls_keyps_i,
             thresh=thresh,
             box_alpha=0.8,
+            ext='png',
             dataset=ds,
             show_class=True
         )
