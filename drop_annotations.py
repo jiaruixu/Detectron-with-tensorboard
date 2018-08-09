@@ -111,9 +111,9 @@ def main(args):
         if ann['id'] in ann_drop_id:
             coco['annotations'].pop(ind)
 
-    name = os.path.basename(args.annotation_dir)
+    name, _ = os.path.splitext(os.path.basename(args.annotation_dir))
     json_file = '{}/{}_droprate{}.json'.format(args.output_dir, name, args.drop_rate)
-    print('>>write to file: {}'.format(json_file))
+    print('>> Writing to file: {}'.format(json_file))
     json.dump(coco, open(json_file, 'w'))
 
 if __name__ == '__main__':

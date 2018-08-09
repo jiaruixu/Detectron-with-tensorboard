@@ -78,6 +78,14 @@ _DATASETS = {
         _RAW_DIR:
             _DATA_DIR + '/cityscapes/raw'
     },
+    'cityscapes_caronly_train_with_dropannotations': {
+        _IM_DIR:
+            _DATA_DIR + '/cityscapes/images',
+        _ANN_FN:
+            _DATA_DIR + '/cityscapes/annotations_drop/instancesonly_filtered_gtFine_train_droprate0.6.json',
+        _RAW_DIR:
+            _DATA_DIR + '/cityscapes/raw'
+    },
     'cityscapes_fine_instanceonly_seg_train': {
         _IM_DIR:
             _DATA_DIR + '/cityscapes/images',
