@@ -78,6 +78,13 @@ def main(args):
     coco['info'] = data['info']
     coco['licenses'] = data['licenses']
 
+    coco_nondrop = dict()
+    coco_nondrop['images'] = []
+    coco_nondrop['categories'] = data['categories']
+    coco_nondrop['annotations'] = []
+    coco_nondrop['info'] = data['info']
+    coco_nondrop['licenses'] = data['licenses']
+
     print('>> Random sampling and initialize image dict...')
     # Random sample 20k images
     random_list = sample(xrange(len(data['images'])), args.sample_number)
@@ -88,6 +95,8 @@ def main(args):
         coco['images'].append(img)
         image_id_list.append(img['id'])
         image_dict[img['id']] = 0
+
+    coco_nondrop['images'] = coco['images']
 
     print('>> Initialize category dict...')
     cat_id_list = [cat['id'] for ind, cat in enumerate(data['categories'])]
@@ -113,6 +122,8 @@ def main(args):
             sampled_dataset_cat.append(cat_id)
             cat_dict[cat_id]['annotations'].append(ann)
             cat_dict[cat_id]['annotations_num'] += 1
+
+    coco_nondrop['annotations'] = sampled_annotations
 
     # check if any categories are dropped during sampling
     sampled_dataset_cat = set(sampled_dataset_cat)
@@ -148,9 +159,13 @@ def main(args):
             coco['annotations'].append(ann)
 
     name, _ = os.path.splitext(os.path.basename(args.annotation_dir))
-    json_file = '{}/{}_droprate{}_sample{}.json'.format(args.output_dir, name, args.drop_rate, args.sample_number)
-    print('>> Writing to file: {}'.format(json_file))
-    json.dump(coco, open(json_file, 'w'))
+    json_file_drop = '{}/{}_droprate{}_sample{}.json'.format(args.output_dir, name, args.drop_rate, args.sample_number)
+    print('>> Writing to file: {}'.format(json_file_drop))
+    json.dump(coco, open(json_file_drop, 'w'))
+
+    json_file_nondrop = '{}/{}_sample{}.json'.format(args.output_dir, name, args.sample_number)
+    print('>> Writing to file: {}'.format(json_file_nondrop))
+    json.dump(coco_nondrop, open(json_file_nondrop, 'w'))
 
 if __name__ == '__main__':
     args = parse_args()
