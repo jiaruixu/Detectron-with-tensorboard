@@ -73,10 +73,22 @@ python2 tools/prediction_to_coco_format.py \
 
 ## Drop Annotations
 
+For dropping annotations only:
+
 ```
-python2 tools/drop_annotations.py \
+python2 drop_annotations.py \
 	--annotation-dir /mnt/fcav/self_training/object_detection/dataset/COCO/annotations/instances_train2014.json \
 	--drop-rate 0.3 \
+	--output-dir /mnt/fcav/self_training/object_detection/dataset/COCO/annotations_drop
+```
+
+For COCO dataset, sampling certain number of images and dropping annotations:
+
+```
+python2 drop_annotations_and_resample.py \
+	--annotation-dir /mnt/fcav/self_training/object_detection/dataset/COCO/annotations/instances_train2014.json \
+	--drop-rate 0.3 \
+	--sample-number 20000 \
 	--output-dir /mnt/fcav/self_training/object_detection/dataset/COCO/annotations_drop
 ```
 

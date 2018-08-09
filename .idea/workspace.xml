@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ed5b3b6f-0e07-4da7-8222-4496fb35c393" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/drop_annotations_and_resample.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/drop_annotations.py" beforeDir="false" afterPath="$PROJECT_DIR$/drop_annotations.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -13,9 +16,10 @@
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/Detectron_with_tensorboard$infer_simple.coverage" NAME="infer_simple Coverage Results" MODIFIED="1533668932864" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" />
     <SUITE FILE_PATH="coverage/Detectron_with_tensorboard$view_jason_results.coverage" NAME="view_jason_results Coverage Results" MODIFIED="1533658346827" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="/mnt/data/object_detection/COCO" />
+    <SUITE FILE_PATH="coverage/Detectron_with_tensorboard$drop_annotations_and_resample.coverage" NAME="drop_annotations_and_resample Coverage Results" MODIFIED="1533832225108" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Detectron_with_tensorboard$train_net.coverage" NAME="train_net Coverage Results" MODIFIED="1533165451250" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" />
     <SUITE FILE_PATH="coverage/Detectron_with_tensorboard$test_net.coverage" NAME="test_net Coverage Results" MODIFIED="1533742244213" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" />
-    <SUITE FILE_PATH="coverage/Detectron_with_tensorboard$drop_annotations.coverage" NAME="drop_annotations Coverage Results" MODIFIED="1533824270734" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Detectron_with_tensorboard$drop_annotations.coverage" NAME="drop_annotations Coverage Results" MODIFIED="1533828144309" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Detectron_with_tensorboard$prediction_to_coco_format.coverage" NAME="prediction_to_coco_format Coverage Results" MODIFIED="1533761262965" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" />
     <SUITE FILE_PATH="coverage/Detectron_with_tensorboard$eval.coverage" NAME="eval Coverage Results" MODIFIED="1533767170582" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" />
   </component>
@@ -45,7 +49,7 @@
         <counts>
           <entry key="gitignore" value="1" />
           <entry key="png" value="1" />
-          <entry key="py" value="44" />
+          <entry key="py" value="48" />
           <entry key="yaml" value="4" />
         </counts>
       </usages-collector>
@@ -53,19 +57,19 @@
         <counts>
           <entry key="Image" value="1" />
           <entry key="PLAIN_TEXT" value="1" />
-          <entry key="Python" value="44" />
+          <entry key="Python" value="48" />
           <entry key="YAML" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="7640" />
+          <entry key="py" value="8573" />
           <entry key="yaml" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="7640" />
+          <entry key="Python" value="8573" />
           <entry key="YAML" value="1" />
         </counts>
       </usages-collector>
@@ -73,44 +77,17 @@
     </session>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.33907187">
+    <splitter split-orientation="horizontal" split-proportion="0.4829843">
       <split-first>
         <leaf>
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/tools/test_net.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-531">
+                <state relative-caret-position="746">
                   <caret line="66" column="10" lean-forward="true" selection-start-line="66" selection-start-column="9" selection-end-line="66" selection-end-column="14" />
                   <folding>
                     <element signature="e#745#783#0" expanded="true" />
                   </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file:///usr/lib/python2.7/ctypes/__init__.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="250">
-                  <caret line="361" selection-start-line="361" selection-end-line="361" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file:///usr/local/lib/python2.7/dist-packages/caffe2/python/dyndep.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="305">
-                  <caret line="34" selection-start-line="34" selection-end-line="34" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/detectron/utils/c2.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="250">
-                  <caret line="41" selection-start-line="41" selection-end-line="41" />
                 </state>
               </provider>
             </entry>
@@ -148,7 +125,7 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/tools/visualize_results.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-940">
+                <state relative-caret-position="-831">
                   <caret line="63" column="24" lean-forward="true" selection-start-line="63" selection-start-column="24" selection-end-line="63" selection-end-column="24" />
                   <folding>
                     <element signature="e#767#782#0" expanded="true" />
@@ -158,18 +135,39 @@
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/tools/pascal_voc_xml2jason.py">
+            <entry file="file://$PROJECT_DIR$/drop_annotations.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="3572">
-                  <caret line="188" lean-forward="true" selection-start-line="188" selection-end-line="188" />
+                <state relative-caret-position="488">
+                  <caret line="123" column="33" lean-forward="true" selection-start-line="123" selection-start-column="33" selection-end-line="123" selection-end-column="33" />
                   <folding>
-                    <element signature="e#0#34#0" expanded="true" />
+                    <element signature="e#0#38#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/drop_annotations_and_resample.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="602">
+                  <caret line="156" column="14" lean-forward="true" selection-start-line="156" selection-start-column="14" selection-end-line="156" selection-end-column="14" />
+                  <folding>
+                    <element signature="e#0#38#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file:///usr/lib/python2.7/random.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="371">
+                  <caret line="290" selection-start-line="290" selection-end-line="290" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/tools/prediction_to_coco_format.py">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="229">
@@ -186,26 +184,14 @@
       </split-first>
       <split-second>
         <leaf>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/tools/eval.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="436">
-                  <caret line="107" column="57" lean-forward="true" selection-start-line="107" selection-start-column="57" selection-end-line="107" selection-end-column="57" />
+                <state relative-caret-position="208">
+                  <caret line="89" column="31" selection-start-line="89" selection-start-column="29" selection-end-line="89" selection-end-column="77" />
                   <folding>
                     <element signature="e#41#79#0" expanded="true" />
                     <marker date="1533767120363" expanded="true" signature="2866:3698" ph="..." />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/drop_annotations.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="493">
-                  <caret line="115" column="21" selection-start-line="115" selection-start-column="21" selection-end-line="115" selection-end-column="21" />
-                  <folding>
-                    <element signature="e#0#38#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -278,8 +264,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>_log_detection_eval_metrics</find>
-      <find>json_dataset_evaluator</find>
       <find>evaluate_all</find>
       <find>test_net_on_dataset</find>
       <find>check</find>
@@ -302,10 +286,13 @@
       <find>out_when_no_box</find>
       <find>output_name</find>
       <find>evaluate_boxes</find>
-      <find>annotation_id</find>
       <find>im_detect_all</find>
       <find>argparse</find>
       <find>workspace</find>
+      <find>coco</find>
+      <find>sampled_annotations</find>
+      <find>ann_id_list</find>
+      <find>annotation_id</find>
       <find>data</find>
     </findStrings>
   </component>
@@ -327,6 +314,7 @@
         <option value="$PROJECT_DIR$/tools/prediction_to_coco_format.py" />
         <option value="$PROJECT_DIR$/tools/eval.py" />
         <option value="$PROJECT_DIR$/drop_annotations.py" />
+        <option value="$PROJECT_DIR$/drop_annotations_and_resample.py" />
       </list>
     </option>
   </component>
@@ -436,6 +424,11 @@
       </console-settings>
     </option>
   </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -448,7 +441,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.drop_annotations">
+  <component name="RunManager" selected="Python.drop_annotations_and_resample">
     <configuration name="drop_annotations" type="PythonConfigurationType" factoryName="Python">
       <module name="Detectron-with-tensorboard" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -467,6 +460,32 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/drop_annotations.py" />
+      <option name="PARAMETERS" value="--annotation-dir /mnt/fcav/self_training/object_detection/dataset/COCO/annotations/instances_val2014.json --drop-rate 0.3 --output-dir /mnt/fcav/self_training/object_detection/dataset/COCO/annotations_drop" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="drop_annotations_and_resample" type="PythonConfigurationType" factoryName="Python">
+      <module name="Detectron-with-tensorboard" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="PATH" value="/usr/local/cuda/bin:$PATH" />
+        <env name="LD_LIBRARY_PATH" value="/usr/local/cuda/lib64:/usr/local/cuda/include:$LD_LIBRARY_PATH" />
+        <env name="COCOAPI" value="$PROJECT_DIR$/../cocoapi" />
+        <env name="DETECTRON" value="$PROJECT_DIR$/../detectron" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/drop_annotations_and_resample.py" />
       <option name="PARAMETERS" value="--annotation-dir /mnt/fcav/self_training/object_detection/dataset/COCO/annotations/instances_val2014.json --drop-rate 0.3 --output-dir /mnt/fcav/self_training/object_detection/dataset/COCO/annotations_drop" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -639,6 +658,7 @@
       <item itemvalue="Python.test_net" />
       <item itemvalue="Python.prediction_to_coco_format" />
       <item itemvalue="Python.drop_annotations" />
+      <item itemvalue="Python.drop_annotations_and_resample" />
     </list>
   </component>
   <component name="SvnConfiguration">
@@ -655,11 +675,11 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="27" width="1720" height="1413" extended-state="4" />
+    <frame x="0" y="27" width="3440" height="1413" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20095694" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.0990566" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
@@ -700,16 +720,36 @@
           <line>6</line>
           <option name="timeStamp" value="12" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/drop_annotations.py</url>
-          <line>65</line>
-          <option name="timeStamp" value="49" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateCodeFragment">
+      <expression>
+        <expression-string>a = []
+if len(a) == 0:
+    print('yes')</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>from random import sample
+s = xrange(5)</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>from random import sample
+s = sample(xrange(20), 5)</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>from random import sample
+sample(xrange(20), 5)</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>image_dict[image_id]</expression-string>
         <language-id>Python</language-id>
@@ -737,59 +777,20 @@ a1 = a[0:3]</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
-      <expression>
-        <expression-string>a = range(5)
-from random import shuffle
-a1 = shuffle(a)[0:1]</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>a = range(5)
-from random import shuffle
-shuffle(a)</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>a = [range(5)]
-from random import shuffle
-shuffle(a)</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>a = []
-a.append(annotations[0])
-a.append(annotations[1])
-a.append(annotations[2])
-from random import shuffle
-shuffle(a)</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>a = []
-a.append(annotations[0])
-a.append(annotations[1])
-a.append(annotations[2])</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
     </expressions>
     <expressions id="evaluateExpression">
-      <expression>
-        <expression-string>name,_ = os.path.splitext(os.path.basename(args.annotation_dir))</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
       <expression>
         <expression-string>int(round(args.drop_rate * annotations_num))</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>round(args.drop_rate * annotations_num)</expression-string>
+        <expression-string>random_list[idx]</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>range(5)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -799,29 +800,27 @@ a.append(annotations[2])</expression-string>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>cat_dict[cat_id]</expression-string>
+        <expression-string>data[u'licenses']</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>gt[u'annotations'][0]['segmentation']</expression-string>
+        <expression-string>data[u'info']</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>from copy import deepcopy
-dict = deepcopy(gt['images'][1])
-dict.pop('seg_file_name')</expression-string>
+        <expression-string>data[u'images'][0]</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>max(range(len(gt['images'])))</expression-string>
+        <expression-string>len(data[u'images'])</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>gt['images'][2974]</expression-string>
+        <expression-string>name,_ = os.path.splitext(os.path.basename(args.annotation_dir))</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -949,13 +948,6 @@ dict.pop('seg_file_name')</expression-string>
         </state>
       </provider>
     </entry>
-    <entry file="file:///usr/local/lib/python2.7/dist-packages/caffe2/python/dyndep.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="305">
-          <caret line="34" selection-start-line="34" selection-end-line="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/detectron/utils/c2.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="250">
@@ -1020,36 +1012,6 @@ dict.pop('seg_file_name')</expression-string>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tools/test_net.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-531">
-          <caret line="66" column="10" lean-forward="true" selection-start-line="66" selection-start-column="9" selection-end-line="66" selection-end-column="14" />
-          <folding>
-            <element signature="e#745#783#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/pascal_voc_xml2jason.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3572">
-          <caret line="188" lean-forward="true" selection-start-line="188" selection-end-line="188" />
-          <folding>
-            <element signature="e#0#34#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/visualize_results.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-940">
-          <caret line="63" column="24" lean-forward="true" selection-start-line="63" selection-start-column="24" selection-end-line="63" selection-end-column="24" />
-          <folding>
-            <element signature="e#767#782#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tools/infer_simple.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1216">
@@ -1067,17 +1029,6 @@ dict.pop('seg_file_name')</expression-string>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tools/eval.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="436">
-          <caret line="107" column="57" lean-forward="true" selection-start-line="107" selection-start-column="57" selection-end-line="107" selection-end-column="57" />
-          <folding>
-            <element signature="e#41#79#0" expanded="true" />
-            <marker date="1533767120363" expanded="true" signature="2866:3698" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tools/prediction_to_coco_format.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="229">
@@ -1089,17 +1040,82 @@ dict.pop('seg_file_name')</expression-string>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/tools/eval.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="89" column="31" selection-start-line="89" selection-start-column="29" selection-end-line="89" selection-end-column="77" />
+          <folding>
+            <element signature="e#41#79#0" expanded="true" />
+            <marker date="1533767120363" expanded="true" signature="2866:3698" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/lib/python2.7/dist-packages/caffe2/python/dyndep.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="328">
+          <caret line="34" selection-start-line="34" selection-end-line="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/test_net.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="746">
+          <caret line="66" column="10" lean-forward="true" selection-start-line="66" selection-start-column="9" selection-end-line="66" selection-end-column="14" />
+          <folding>
+            <element signature="e#745#783#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="542">
+        <state relative-caret-position="2309">
           <caret line="1067" selection-start-line="1067" selection-end-line="1067" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/lib/python2.7/random.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="371">
+          <caret line="290" selection-start-line="290" selection-end-line="290" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/pascal_voc_xml2jason.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3572">
+          <caret line="188" lean-forward="true" selection-start-line="188" selection-end-line="188" />
+          <folding>
+            <element signature="e#0#34#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/visualize_results.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-831">
+          <caret line="63" column="24" lean-forward="true" selection-start-line="63" selection-start-column="24" selection-end-line="63" selection-end-column="24" />
+          <folding>
+            <element signature="e#767#782#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/drop_annotations.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="115" column="21" selection-start-line="115" selection-start-column="21" selection-end-line="115" selection-end-column="21" />
+        <state relative-caret-position="488">
+          <caret line="123" column="33" lean-forward="true" selection-start-line="123" selection-start-column="33" selection-end-line="123" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/drop_annotations_and_resample.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="602">
+          <caret line="156" column="14" lean-forward="true" selection-start-line="156" selection-start-column="14" selection-end-line="156" selection-end-column="14" />
           <folding>
             <element signature="e#0#38#0" expanded="true" />
           </folding>

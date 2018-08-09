@@ -8,7 +8,7 @@ import argparse
 import sys
 import os
 
-from random import shuffle
+from random import shuffle, sample
 
 def parse_args():
     parser = argparse.ArgumentParser()
@@ -25,6 +25,13 @@ def parse_args():
         help='percentage of annotations to drop',
         default=0.3,
         type=float
+    )
+    parser.add_argument(
+        '--sample-number',
+        dest='sample_number',
+        help='number of images to sample',
+        default=20000,
+        type=int
     )
     parser.add_argument(
         '--output-dir',
@@ -47,7 +54,6 @@ def main(args):
 
     # dict{image: number of annotations} count how many number of annotations in each image
     # dict{category id: annotations, number of total annotations}
-    # for each category drop drop_rate% annotations
     # for each category:
     #   random shuffle annotations
     #   drop_num = drop_rate * annotations_num
@@ -66,15 +72,24 @@ def main(args):
     print('>> Initialization...')
 
     coco = dict()
-    coco['images'] = data['images']
+    coco['images'] = []
     coco['categories'] = data['categories']
     coco['annotations'] = []
+    coco['info'] = data['info']
+    coco['licenses'] = data['licenses']
 
-    image_id_list = [img['id'] for ind, img in enumerate(data['images'])]  # num = 40504
+    print('>> Random sampling and initialize image dict...')
+    # Random sample 20k images
+    random_list = sample(xrange(len(data['images'])), args.sample_number)
+    image_id_list = []
     image_dict = dict()
-    for image_id in image_id_list:
-        image_dict[image_id] = 0
+    for ind in random_list:
+        img = data['images'][ind]
+        coco['images'].append(img)
+        image_id_list.append(img['id'])
+        image_dict[img['id']] = 0
 
+    print('>> Initialize category dict...')
     cat_id_list = [cat['id'] for ind, cat in enumerate(data['categories'])]
     cat_dict = dict()
     for cat_id in cat_id_list:
@@ -83,18 +98,31 @@ def main(args):
         cat_dict[cat_id]['annotations_num'] = 0
 
     print('>> Generating image dict and category dict...')
+    sampled_annotations = []
+    sampled_dataset_cat = []
+    ann_id_list = []
     for ind, ann in enumerate(data['annotations']):
         image_id = ann['image_id']
-        image_dict[image_id] += 1
+        if image_id in image_id_list:
+            image_dict[image_id] += 1
 
-        cat_id = ann['category_id']
-        cat_dict[cat_id]['annotations'].append(ann)
-        cat_dict[cat_id]['annotations_num'] += 1
+            sampled_annotations.append(ann)
+            ann_id_list.append(ann['id'])
 
-    print('>> Finding the annotations to drop...')
+            cat_id = ann['category_id']
+            sampled_dataset_cat.append(cat_id)
+            cat_dict[cat_id]['annotations'].append(ann)
+            cat_dict[cat_id]['annotations_num'] += 1
+
+    # check if any categories are dropped during sampling
+    sampled_dataset_cat = set(sampled_dataset_cat)
+    missing_cat = list(set(cat_id_list).difference(sampled_dataset_cat))
+    if len(missing_cat) != 0:
+        print('>> Categoties {} is missing...'.format(missing_cat))
+
+    print('>> Finding annotations to drop...')
     ann_drop_id = []
-
-    for cat_id in cat_id_list:
+    for cat_id in sampled_dataset_cat:
         annotations = cat_dict[cat_id]['annotations']
         annotations_num = cat_dict[cat_id]['annotations_num']
 
@@ -113,15 +141,14 @@ def main(args):
 
     # drop annotations
     print('>> Dropping annotations...')
-    ann_id_list = [ann['id'] for ind, ann in enumerate(data['annotations'])]
     ann_keep_id = list(set(ann_id_list).difference(set(ann_drop_id)))
 
-    for ind, ann in enumerate(data['annotations']):
+    for ind, ann in enumerate(sampled_annotations):
         if ann['id'] in ann_keep_id:
             coco['annotations'].append(ann)
 
     name, _ = os.path.splitext(os.path.basename(args.annotation_dir))
-    json_file = '{}/{}_droprate{}.json'.format(args.output_dir, name, args.drop_rate)
+    json_file = '{}/{}_droprate{}_sample{}.json'.format(args.output_dir, name, args.drop_rate, args.sample_number)
     print('>> Writing to file: {}'.format(json_file))
     json.dump(coco, open(json_file, 'w'))
 
