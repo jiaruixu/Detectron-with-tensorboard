@@ -71,6 +71,15 @@ python2 tools/prediction_to_coco_format.py \
 	--thresh 0.96
 ```
 
+## Drop Annotations
+
+```
+python2 tools/drop_annotations.py \
+	--annotation-dir /mnt/fcav/self_training/object_detection/dataset/COCO/annotations/instances_train2014.json \
+	--drop-rate 0.3 \
+	--output-dir /mnt/fcav/self_training/object_detection/dataset/COCO/annotations_drop
+```
+
 ## Detectron
 
 Detectron is Facebook AI Research's software system that implements state-of-the-art object detection algorithms, including [Mask R-CNN](https://arxiv.org/abs/1703.06870). It is written in Python and powered by the [Caffe2](https://github.com/caffe2/caffe2) deep learning framework.
