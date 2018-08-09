@@ -52,8 +52,8 @@ def main(args):
     with open(args.annotation_dir) as f:
         data = json.load(f)
 
-    # dict{image: number of annotations} count how many number of annotations in each image
-    # dict{category id: annotations, number of total annotations}
+    # image_dict{image id: number of annotations} count how many number of annotations in each image
+    # cat_dict{category id: annotations, number of total annotations}
     # for each category:
     #   random shuffle annotations
     #   drop_num = drop_rate * annotations_num
@@ -67,8 +67,8 @@ def main(args):
     #       drop_num--
 
     # initialization
-    # dict{image: number of annotations} count how many number of annotations in each image
-    # dict{category id: annotations, number of total annotations}
+    # image_dict{image id: number of annotations} count how many number of annotations in each image
+    # cat_dict{category id: annotations, number of total annotations}
     print('>> Initialization...')
 
     coco = dict()
