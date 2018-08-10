@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ed5b3b6f-0e07-4da7-8222-4496fb35c393" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/Detectron-with-tensorboard.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Detectron-with-tensorboard.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/drop_annotations_and_resample.py" beforeDir="false" afterPath="$PROJECT_DIR$/drop_annotations_and_resample.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/drop_annotations.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drop_annotations_and_resample.py" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -40,14 +43,15 @@
       <usages-collector id="statistics.lifecycle.project">
         <counts>
           <entry key="project.open.time.1" value="1" />
-          <entry key="project.opened" value="1" />
+          <entry key="project.open.time.10" value="1" />
+          <entry key="project.opened" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="gitignore" value="1" />
           <entry key="png" value="1" />
-          <entry key="py" value="49" />
+          <entry key="py" value="50" />
           <entry key="yaml" value="4" />
         </counts>
       </usages-collector>
@@ -55,19 +59,19 @@
         <counts>
           <entry key="Image" value="1" />
           <entry key="PLAIN_TEXT" value="1" />
-          <entry key="Python" value="49" />
+          <entry key="Python" value="50" />
           <entry key="YAML" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="8665" />
+          <entry key="py" value="8949" />
           <entry key="yaml" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="8665" />
+          <entry key="Python" value="8949" />
           <entry key="YAML" value="1" />
         </counts>
       </usages-collector>
@@ -75,14 +79,14 @@
     </session>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.63023955">
+    <splitter split-orientation="horizontal" split-proportion="0.81287426">
       <split-first>
-        <leaf>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/tools/test_net.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="746">
-                  <caret line="66" column="10" lean-forward="true" selection-start-line="66" selection-start-column="9" selection-end-line="66" selection-end-column="14" />
+                <state relative-caret-position="855">
+                  <caret line="66" column="10" selection-start-line="66" selection-start-column="9" selection-end-line="66" selection-end-column="14" />
                   <folding>
                     <element signature="e#745#783#0" expanded="true" />
                   </folding>
@@ -93,7 +97,7 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/tools/infer_simple.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-1216">
+                <state relative-caret-position="608">
                   <caret line="32" selection-start-line="32" selection-end-line="32" selection-end-column="10" />
                 </state>
               </provider>
@@ -102,8 +106,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/detectron/utils/vis.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="522">
-                  <caret line="389" column="55" lean-forward="true" selection-start-line="389" selection-start-column="55" selection-end-line="389" selection-end-column="55" />
+                <state relative-caret-position="7144">
+                  <caret line="389" column="55" selection-start-line="389" selection-start-column="55" selection-end-line="389" selection-end-column="55" />
                   <folding>
                     <element signature="e#717#755#0" expanded="true" />
                   </folding>
@@ -114,7 +118,7 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/detectron/core/config.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="19">
+                <state relative-caret-position="3857">
                   <caret line="219" selection-start-line="219" selection-end-line="219" />
                 </state>
               </provider>
@@ -123,32 +127,17 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/tools/visualize_results.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-831">
-                  <caret line="63" column="24" lean-forward="true" selection-start-line="63" selection-start-column="24" selection-end-line="63" selection-end-column="24" />
-                  <folding>
-                    <element signature="e#767#782#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/drop_annotations.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="488">
-                  <caret line="123" column="33" lean-forward="true" selection-start-line="123" selection-start-column="33" selection-end-line="123" selection-end-column="33" />
-                  <folding>
-                    <element signature="e#0#38#0" expanded="true" />
-                  </folding>
+                <state relative-caret-position="252">
+                  <caret line="63" column="24" selection-start-line="63" selection-start-column="24" selection-end-line="63" selection-end-column="24" />
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/drop_annotations_and_resample.py">
+            <entry file="file://$PROJECT_DIR$/tools/drop_annotations_and_resample.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="355">
-                  <caret line="125" column="41" lean-forward="true" selection-start-line="125" selection-start-column="41" selection-end-line="125" selection-end-column="41" />
+                <state relative-caret-position="646">
+                  <caret line="64" column="45" lean-forward="true" selection-start-line="64" selection-start-column="45" selection-end-line="64" selection-end-column="45" />
                   <folding>
                     <element signature="e#0#38#0" expanded="true" />
                   </folding>
@@ -159,7 +148,7 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file:///usr/lib/python2.7/random.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="371">
+                <state relative-caret-position="5377">
                   <caret line="290" selection-start-line="290" selection-end-line="290" />
                 </state>
               </provider>
@@ -168,8 +157,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/tools/prediction_to_coco_format.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="229">
-                  <caret line="48" column="51" lean-forward="true" selection-start-line="48" selection-start-column="51" selection-end-line="48" selection-end-column="51" />
+                <state relative-caret-position="760">
+                  <caret line="48" column="51" selection-start-line="48" selection-start-column="51" selection-end-line="48" selection-end-column="51" />
                   <folding>
                     <element signature="e#0#38#0" expanded="true" />
                     <marker date="1533761220284" expanded="true" signature="252:1356" ph="..." />
@@ -181,12 +170,12 @@
         </leaf>
       </split-first>
       <split-second>
-        <leaf>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/tools/eval.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="208">
-                  <caret line="89" column="31" selection-start-line="89" selection-start-column="29" selection-end-line="89" selection-end-column="77" />
+                <state relative-caret-position="1181">
+                  <caret line="135" selection-start-line="135" selection-end-line="135" />
                   <folding>
                     <element signature="e#41#79#0" expanded="true" />
                     <marker date="1533767120363" expanded="true" signature="2866:3698" ph="..." />
@@ -198,7 +187,7 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/detectron/core/test_engine.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="202">
+                <state relative-caret-position="456">
                   <caret line="53" selection-start-line="53" selection-end-line="53" />
                   <folding>
                     <element signature="e#732#770#0" expanded="true" />
@@ -210,8 +199,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/detectron/core/test.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="201">
-                  <caret line="117" column="19" lean-forward="true" selection-start-line="117" selection-start-column="19" selection-end-line="117" selection-end-column="19" />
+                <state relative-caret-position="1824">
+                  <caret line="117" column="19" selection-start-line="117" selection-start-column="19" selection-end-line="117" selection-end-column="19" />
                   <folding>
                     <element signature="e#991#1029#0" expanded="true" />
                   </folding>
@@ -222,7 +211,7 @@
           <file pinned="false" current-in-tab="false">
             <entry file="jar://$USER_HOME$/.local/lib/python2.7/site-packages/pycocotools-2.0-py2.7-linux-x86_64.egg!/pycocotools/coco.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-384">
+                <state relative-caret-position="1691">
                   <caret line="100" column="46" selection-start-line="100" selection-start-column="46" selection-end-line="100" selection-end-column="46" />
                 </state>
               </provider>
@@ -231,7 +220,7 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/detectron/datasets/task_evaluation.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="198">
+                <state relative-caret-position="703">
                   <caret line="52" column="7" selection-start-line="52" selection-start-column="4" selection-end-line="52" selection-end-column="16" />
                 </state>
               </provider>
@@ -240,8 +229,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/detectron/datasets/json_dataset_evaluator.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="3045">
-                  <caret line="302" column="48" lean-forward="true" selection-start-line="302" selection-start-column="48" selection-end-line="302" selection-end-column="48" />
+                <state relative-caret-position="5415">
+                  <caret line="302" column="48" selection-start-line="302" selection-start-column="48" selection-end-line="302" selection-end-column="48" />
                   <folding>
                     <element signature="e#740#778#0" expanded="true" />
                   </folding>
@@ -285,13 +274,13 @@
       <find>output_name</find>
       <find>evaluate_boxes</find>
       <find>im_detect_all</find>
-      <find>argparse</find>
       <find>workspace</find>
       <find>coco</find>
       <find>sampled_annotations</find>
       <find>annotation_id</find>
       <find>data</find>
       <find>ann_id_list</find>
+      <find>argparse</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -314,6 +303,7 @@
         <option value="$PROJECT_DIR$/drop_annotations.py" />
         <option value="$PROJECT_DIR$/sample_images.py" />
         <option value="$PROJECT_DIR$/drop_annotations_and_resample.py" />
+        <option value="$PROJECT_DIR$/tools/drop_annotations_and_resample.py" />
       </list>
     </option>
   </component>
@@ -323,9 +313,9 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="4">
     <option name="y" value="27" />
-    <option name="width" value="1720" />
+    <option name="width" value="1385" />
     <option name="height" value="1413" />
   </component>
   <component name="ProjectView">
@@ -343,11 +333,6 @@
             <path>
               <item name="Detectron-with-tensorboard" type="b2602c69:ProjectViewProjectNode" />
               <item name="Detectron-with-tensorboard" type="462c0819:PsiDirectoryNode" />
-              <item name="configs" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Detectron-with-tensorboard" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Detectron-with-tensorboard" type="462c0819:PsiDirectoryNode" />
               <item name="tools" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -358,34 +343,6 @@
               <item name="Detectron-with-tensorboard" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
               <item name="&lt; Python 2.7 &gt;" type="70bed36:NamedLibraryElementNode" />
-            </path>
-            <path>
-              <item name="Detectron-with-tensorboard" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 2.7 &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="Detectron-with-tensorboard" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Detectron-with-tensorboard" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 2.7 &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="Detectron-with-tensorboard" type="462c0819:PsiDirectoryNode" />
-              <item name="detectron" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Detectron-with-tensorboard" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 2.7 &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="Detectron-with-tensorboard" type="462c0819:PsiDirectoryNode" />
-              <item name="detectron" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Detectron-with-tensorboard" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 2.7 &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="Detectron-with-tensorboard" type="462c0819:PsiDirectoryNode" />
-              <item name="tools" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -399,7 +356,7 @@
     <property name="last_opened_file_path" value="/mnt/data/object_detection/COCO/view_jason_results.py" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="PyConsoleConfigurable.Python Console" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -674,18 +631,12 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="27" width="3440" height="1413" extended-state="6" />
+    <frame x="0" y="27" width="1385" height="1413" extended-state="4" />
     <editor active="true" />
     <layout>
-      <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.0990566" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2528048" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Python Console" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="Event Log" sideWeight="0.5005981" side_tool="true" weight="0.24232888" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49940193" weight="0.3808025" />
@@ -693,11 +644,17 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="SciView" weight="0.15153302" />
-      <window_info anchor="right" id="Database" weight="0.32954547" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5005981" side_tool="true" weight="0.24232888" />
+      <window_info anchor="bottom" id="Terminal" order="11" />
+      <window_info anchor="bottom" id="Python Console" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="SciView" order="3" weight="0.15153302" />
+      <window_info anchor="right" id="Database" order="4" weight="0.32954547" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -906,23 +863,14 @@ a1 = a[0:3]</expression-string>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
           <caret line="11" column="54" selection-start-line="11" selection-start-column="54" selection-end-line="11" selection-end-column="54" />
-          <folding>
-            <element signature="e#726#764#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tools/Precision-recall-curve-of-checkpoint329999.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/Precision-recall-curve-of-checkpoint329999.png" />
     <entry file="file://$PROJECT_DIR$/detectron/utils/train.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="19">
           <caret line="100" column="26" selection-start-line="99" selection-end-line="100" selection-end-column="26" />
-          <folding>
-            <element signature="e#979#1017#0" expanded="true" />
-            <element signature="e#3175#3240#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -930,13 +878,6 @@ a1 = a[0:3]</expression-string>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="128">
           <caret line="178" selection-start-line="178" selection-end-line="178" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.local/lib/python2.7/site-packages/pycocotools-2.0-py2.7-linux-x86_64.egg!/pycocotools/coco.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-384">
-          <caret line="100" column="46" selection-start-line="100" selection-start-column="46" selection-end-line="100" selection-end-column="46" />
         </state>
       </provider>
     </entry>
@@ -954,13 +895,6 @@ a1 = a[0:3]</expression-string>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/detectron/datasets/task_evaluation.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="52" column="7" selection-start-line="52" selection-start-column="4" selection-end-line="52" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///mnt/data/object_detection/COCO/view_jason_results.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="114">
@@ -971,99 +905,13 @@ a1 = a[0:3]</expression-string>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/detectron/core/test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="117" column="19" lean-forward="true" selection-start-line="117" selection-start-column="19" selection-end-line="117" selection-end-column="19" />
-          <folding>
-            <element signature="e#991#1029#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/detectron/core/config.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="219" selection-start-line="219" selection-end-line="219" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/detectron/utils/vis.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="522">
-          <caret line="389" column="55" lean-forward="true" selection-start-line="389" selection-start-column="55" selection-end-line="389" selection-end-column="55" />
-          <folding>
-            <element signature="e#717#755#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/detectron/datasets/json_dataset_evaluator.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3045">
-          <caret line="302" column="48" lean-forward="true" selection-start-line="302" selection-start-column="48" selection-end-line="302" selection-end-column="48" />
-          <folding>
-            <element signature="e#740#778#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/infer_simple.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1216">
-          <caret line="32" selection-start-line="32" selection-end-line="32" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/detectron/core/test_engine.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="53" selection-start-line="53" selection-end-line="53" />
-          <folding>
-            <element signature="e#732#770#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/prediction_to_coco_format.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="48" column="51" lean-forward="true" selection-start-line="48" selection-start-column="51" selection-end-line="48" selection-end-column="51" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-            <marker date="1533761220284" expanded="true" signature="252:1356" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/eval.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="89" column="31" selection-start-line="89" selection-start-column="29" selection-end-line="89" selection-end-column="77" />
-          <folding>
-            <element signature="e#41#79#0" expanded="true" />
-            <marker date="1533767120363" expanded="true" signature="2866:3698" ph="..." />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file:///usr/local/lib/python2.7/dist-packages/caffe2/python/dyndep.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="328">
           <caret line="34" selection-start-line="34" selection-end-line="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/test_net.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="746">
-          <caret line="66" column="10" lean-forward="true" selection-start-line="66" selection-start-column="9" selection-end-line="66" selection-end-column="14" />
-          <folding>
-            <element signature="e#745#783#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1074,54 +922,152 @@ a1 = a[0:3]</expression-string>
         </state>
       </provider>
     </entry>
-    <entry file="file:///usr/lib/python2.7/random.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="371">
-          <caret line="290" selection-start-line="290" selection-end-line="290" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tools/pascal_voc_xml2jason.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3572">
           <caret line="188" lean-forward="true" selection-start-line="188" selection-end-line="188" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sample_images.py" />
+    <entry file="file://$PROJECT_DIR$/tools/test_net.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="855">
+          <caret line="66" column="10" selection-start-line="66" selection-start-column="9" selection-end-line="66" selection-end-column="14" />
           <folding>
-            <element signature="e#0#34#0" expanded="true" />
+            <element signature="e#745#783#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tools/visualize_results.py">
+    <entry file="file://$PROJECT_DIR$/tools/infer_simple.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-831">
-          <caret line="63" column="24" lean-forward="true" selection-start-line="63" selection-start-column="24" selection-end-line="63" selection-end-column="24" />
+        <state relative-caret-position="608">
+          <caret line="32" selection-start-line="32" selection-end-line="32" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/detectron/utils/vis.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7144">
+          <caret line="389" column="55" selection-start-line="389" selection-start-column="55" selection-end-line="389" selection-end-column="55" />
           <folding>
-            <element signature="e#767#782#0" expanded="true" />
+            <element signature="e#717#755#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/detectron/core/config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3857">
+          <caret line="219" selection-start-line="219" selection-end-line="219" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/drop_annotations.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="488">
-          <caret line="123" column="33" lean-forward="true" selection-start-line="123" selection-start-column="33" selection-end-line="123" selection-end-column="33" />
+        <state relative-caret-position="973">
+          <caret line="123" column="33" selection-start-line="123" selection-start-column="33" selection-end-line="123" selection-end-column="33" />
           <folding>
             <element signature="e#0#38#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sample_images.py">
+    <entry file="file:///usr/lib/python2.7/random.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="66" selection-start-line="66" selection-end-line="66" selection-end-column="75" />
+        <state relative-caret-position="5377">
+          <caret line="290" selection-start-line="290" selection-end-line="290" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/prediction_to_coco_format.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="760">
+          <caret line="48" column="51" selection-start-line="48" selection-start-column="51" selection-end-line="48" selection-end-column="51" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+            <marker date="1533761220284" expanded="true" signature="252:1356" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/eval.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1181">
+          <caret line="135" selection-start-line="135" selection-end-line="135" />
+          <folding>
+            <element signature="e#41#79#0" expanded="true" />
+            <marker date="1533767120363" expanded="true" signature="2866:3698" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/detectron/core/test_engine.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="53" selection-start-line="53" selection-end-line="53" />
+          <folding>
+            <element signature="e#732#770#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/detectron/core/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1824">
+          <caret line="117" column="19" selection-start-line="117" selection-start-column="19" selection-end-line="117" selection-end-column="19" />
+          <folding>
+            <element signature="e#991#1029#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.local/lib/python2.7/site-packages/pycocotools-2.0-py2.7-linux-x86_64.egg!/pycocotools/coco.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1691">
+          <caret line="100" column="46" selection-start-line="100" selection-start-column="46" selection-end-line="100" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/detectron/datasets/task_evaluation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="703">
+          <caret line="52" column="7" selection-start-line="52" selection-start-column="4" selection-end-line="52" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/detectron/datasets/json_dataset_evaluator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5415">
+          <caret line="302" column="48" selection-start-line="302" selection-start-column="48" selection-end-line="302" selection-end-column="48" />
+          <folding>
+            <element signature="e#740#778#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/drop_annotations_and_resample.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
-          <caret line="125" column="41" lean-forward="true" selection-start-line="125" selection-start-column="41" selection-end-line="125" selection-end-column="41" />
+        <state relative-caret-position="1006">
+          <caret line="106" column="27" lean-forward="true" selection-start-line="106" selection-start-column="27" selection-end-line="106" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/visualize_results.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="63" column="24" selection-start-line="63" selection-start-column="24" selection-end-line="63" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/drop_annotations_and_resample.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="64" column="45" lean-forward="true" selection-start-line="64" selection-start-column="45" selection-end-line="64" selection-end-column="45" />
           <folding>
             <element signature="e#0#38#0" expanded="true" />
           </folding>

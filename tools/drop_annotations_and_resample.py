@@ -34,6 +34,13 @@ def parse_args():
         type=int
     )
     parser.add_argument(
+        '--sample-only',
+        dest='sample_only',
+        help='only sample the images or not',
+        default=False,
+        type=bool
+    )
+    parser.add_argument(
         '--output-dir',
         dest='output_dir',
         help='output directory',
@@ -48,6 +55,9 @@ def parse_args():
 
 def main(args):
     # read json files
+    if args.sample_only:
+        print('>> Only sampling the annotations. :)')
+        
     print('>> Reading annotations from {}'.format(args.annotation_dir))
     with open(args.annotation_dir) as f:
         data = json.load(f)
@@ -75,15 +85,19 @@ def main(args):
     coco['images'] = []
     coco['categories'] = data['categories']
     coco['annotations'] = []
-    coco['info'] = data['info']
-    coco['licenses'] = data['licenses']
 
     coco_nondrop = dict()
     coco_nondrop['images'] = []
     coco_nondrop['categories'] = data['categories']
     coco_nondrop['annotations'] = []
-    coco_nondrop['info'] = data['info']
-    coco_nondrop['licenses'] = data['licenses']
+
+    if 'info' in data:
+        coco['info'] = data['info']
+        coco_nondrop['info'] = data['info']
+
+    if 'licenses' in data:
+        coco['licenses'] = data['licenses']
+        coco_nondrop['licenses'] = data['licenses']
 
     print('>> Random sampling and initialize image dict...')
     # Random sample 20k images
@@ -125,47 +139,49 @@ def main(args):
 
     coco_nondrop['annotations'] = sampled_annotations
 
-    # check if any categories are dropped during sampling
+    # check if any category is dropped during sampling
     sampled_dataset_cat = set(sampled_dataset_cat)
     missing_cat = list(set(cat_id_list).difference(sampled_dataset_cat))
     if len(missing_cat) != 0:
         print('>> Categoties {} is missing...'.format(missing_cat))
 
-    print('>> Finding annotations to drop...')
-    ann_drop_id = []
-    for cat_id in sampled_dataset_cat:
-        annotations = cat_dict[cat_id]['annotations']
-        annotations_num = cat_dict[cat_id]['annotations_num']
-
-        drop_num = int(round(args.drop_rate * annotations_num))
-        random_list = range(annotations_num)
-        shuffle(random_list)
-        idx = 0
-        while drop_num != 0:
-            annotation_to_drop = annotations[random_list[idx]]
-            image_id = annotation_to_drop['image_id']
-            if image_dict[image_id] > 1:
-                ann_drop_id.append(annotation_to_drop['id'])
-                image_dict[image_id] -= 1
-                drop_num -= 1
-            idx += 1
-
-    # drop annotations
-    print('>> Dropping annotations...')
-    ann_keep_id = list(set(ann_id_list).difference(set(ann_drop_id)))
-
-    for ind, ann in enumerate(sampled_annotations):
-        if ann['id'] in ann_keep_id:
-            coco['annotations'].append(ann)
-
+    # save sampled file
     name, _ = os.path.splitext(os.path.basename(args.annotation_dir))
-    json_file_drop = '{}/{}_droprate{}_sample{}.json'.format(args.output_dir, name, args.drop_rate, args.sample_number)
-    print('>> Writing to file: {}'.format(json_file_drop))
-    json.dump(coco, open(json_file_drop, 'w'))
-
     json_file_nondrop = '{}/{}_sample{}.json'.format(args.output_dir, name, args.sample_number)
-    print('>> Writing to file: {}'.format(json_file_nondrop))
+    print('>> Writing sampled file to {}'.format(json_file_nondrop))
     json.dump(coco_nondrop, open(json_file_nondrop, 'w'))
+
+    if not args.sample_only:
+        print('>> Finding annotations to drop...')
+        ann_drop_id = []
+        for cat_id in sampled_dataset_cat:
+            annotations = cat_dict[cat_id]['annotations']
+            annotations_num = cat_dict[cat_id]['annotations_num']
+
+            drop_num = int(round(args.drop_rate * annotations_num))
+            random_list = range(annotations_num)
+            shuffle(random_list)
+            idx = 0
+            while drop_num != 0:
+                annotation_to_drop = annotations[random_list[idx]]
+                image_id = annotation_to_drop['image_id']
+                if image_dict[image_id] > 1:
+                    ann_drop_id.append(annotation_to_drop['id'])
+                    image_dict[image_id] -= 1
+                    drop_num -= 1
+                idx += 1
+
+        # drop annotations
+        print('>> Dropping annotations...')
+        ann_keep_id = list(set(ann_id_list).difference(set(ann_drop_id)))
+
+        for ind, ann in enumerate(sampled_annotations):
+            if ann['id'] in ann_keep_id:
+                coco['annotations'].append(ann)
+
+        json_file_drop = '{}/{}_droprate{}_sample{}.json'.format(args.output_dir, name, args.drop_rate, args.sample_number)
+        print('>> Writing sampled and annotation-dropped file to {}'.format(json_file_drop))
+        json.dump(coco, open(json_file_drop, 'w'))
 
 if __name__ == '__main__':
     args = parse_args()

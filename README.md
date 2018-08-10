@@ -1,7 +1,41 @@
 ## Detectron with tensorboard
 This repository was forked from [Detectron with tensorboard](https://github.com/tfzhou/Detectron-with-tensorboard)
 
+`tools/pascal_voc_xml2json.py` was forked from [Gemfield](https://github.com/CivilNet/Gemfield/blob/master/src/python/pascal_voc_xml2json/pascal_voc_xml2json.py)
+
 This repository use [c2board](https://github.com/endernewton/c2board) to visualize some training info of Detectron in tensorboard. It dumps the training info in the output folder of Detectron by default.
+
+## Dataset preparation
+### Transfer GTA and Cityscapes to COCO format
+
+1. Extract only car annotations of GTA and Cityscapes.
+2. Convert annotations to COCO format.
+
+### Sample GTA dataset
+
+Extract 8000 images with car annoations as train set and 2000 images with car annotations as valiation set.
+
+Not all the images in the GTA dataset has car annoations. So we first extract images with car annotations from GTA 200k dataset (instead of GTA 10k dataset) and then generate the train and val set by random sampling.
+
+Generate GTA train set (8000 images)
+
+```
+python2 tools/drop_annotations_and_resample.py \
+	--annotation-dir ./detectron/datasets/data/GTA_Pascal_format/Annotations/instances_caronly_train.json \
+	--sample-number 8000 \
+	--sample-only True \
+	--output-dir ./detectron/datasets/data/GTA_Pascal_format/Annotations
+```
+
+Generate GTA val set (2000 images)
+
+```
+python2 tools/drop_annotations_and_resample.py \
+	--annotation-dir ./detectron/datasets/data/GTA_Pascal_format/Annotations/instances_caronly_val.json \
+	--sample-number 2000 \
+	--sample-only True \
+	--output-dir ./detectron/datasets/data/GTA_Pascal_format/Annotations
+```
 
 ## Visualize average precision
 
@@ -20,7 +54,7 @@ visualize lower bound
 ```
 python2 tools/eval.py \
 	--cfg /mnt/fcav/self_training/object_detection/configs/e2e_faster_rcnn_X-101-64x4d-FPN_1x_lowerbound.yaml \
-	TEST.WEIGHTS /mnt/fcav/self_training/object_detection/lowerbound/train/voc_GTA_caronly_train:voc_GTA_caronly_val/generalized_rcnn \
+	TEST.WEIGHTS /mnt/fcav/self_training/object_detection/lowerbound/train/voc_GTA_caronly_train/generalized_rcnn/generalized_rcnn \
 	NUM_GPUS 1 \
 	OUTPUT_DIR /mnt/fcav/self_training/object_detection/lowerbound/eval
 ```
@@ -33,6 +67,16 @@ python2 tools/eval.py \
 	TEST.WEIGHTS /mnt/fcav/self_training/object_detection/baseline/train/voc_GTA_caronly_train:cityscapes_caronly_train_with_prediction:voc_GTA_caronly_val/generalized_rcnn \
 	NUM_GPUS 1 \
 	OUTPUT_DIR /mnt/fcav/self_training/object_detection/baseline/eval
+```
+
+visualize upperbound2
+
+```
+python2 tools/eval.py \
+	--cfg /mnt/fcav/self_training/object_detection/configs/e2e_faster_rcnn_X-101-64x4d-FPN_1x_upperbound2.yaml \
+	TEST.WEIGHTS /mnt/fcav/self_training/object_detection/upperbound2/train/voc_GTA_caronly_train:cityscapes_caronly_train_with_dropannotations:voc_GTA_caronly_val/generalized_rcnn \
+	NUM_GPUS 1 \
+	OUTPUT_DIR /mnt/fcav/self_training/object_detection/upperbound2/eval
 ```
 
 The modified version of eval.py will also plot the **precision-recall curve** and save the **corresponding scores** into an excel.
