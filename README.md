@@ -37,26 +37,52 @@ python2 tools/drop_annotations_and_resample.py \
 	--output-dir ./detectron/datasets/data/GTA_Pascal_format/Annotations
 ```
 
+Write image names to txt
+
+```
+# train
+python tools/write_name_to_txt.py \
+	--json-dir /mnt/fcav/self_training/object_detection/dataset/GTA_Pascal_format/Annotations/instances_caronly_train_sample8000.json \
+	--output-dir /mnt/fcav/self_training/object_detection/dataset/GTA_Pascal_format/VOCdevkit2012/VOC2012/ImageSets/Main
+
+# val
+python tools/write_name_to_txt.py \
+	--json-dir /mnt/fcav/self_training/object_detection/dataset/GTA_Pascal_format/Annotations/instances_caronly_val_sample2000.json \
+	--output-dir /mnt/fcav/self_training/object_detection/dataset/GTA_Pascal_format/VOCdevkit2012/VOC2012/ImageSets/Main
+```
+
+### Add dataset to catalog and modify configs
+
+`./detectron/datasets/dataset_catalog.py`
+
+`./configs/configs/`
+
+## Train Faster RCNN
+
+Use `DetectronDocker` repository
+
 ## Visualize average precision
 
-visualize upperbound1
-
-```
-python2 tools/eval.py \
-	--cfg /mnt/fcav/self_training/object_detection/configs/e2e_faster_rcnn_X-101-64x4d-FPN_1x.yaml \
-	TEST.WEIGHTS /mnt/fcav/self_training/object_detection/upperbound1/train/voc_GTA_caronly_train:cityscapes_caronly_train:voc_GTA_caronly_val/generalized_rcnn \
-	NUM_GPUS 1 \
-	OUTPUT_DIR /mnt/fcav/self_training/object_detection/upperbound1/eval
-```
+`eval.py` will plot the **precision-recall curve** and save the **corresponding scores** into an excel. While evaluating, you can also use tensorboard to visualize the change of average precision. It dumps the info in the output folder of Detectron by default.
 
 visualize lower bound
 
 ```
 python2 tools/eval.py \
 	--cfg /mnt/fcav/self_training/object_detection/configs/e2e_faster_rcnn_X-101-64x4d-FPN_1x_lowerbound.yaml \
-	TEST.WEIGHTS /mnt/fcav/self_training/object_detection/lowerbound/train/voc_GTA_caronly_train/generalized_rcnn/generalized_rcnn \
+	TEST.WEIGHTS /mnt/fcav/self_training/object_detection/lowerbound/train/voc_GTA_caronly_train_sample8000/generalized_rcnn \
 	NUM_GPUS 1 \
 	OUTPUT_DIR /mnt/fcav/self_training/object_detection/lowerbound/eval
+```
+
+visualize upperbound1
+
+```
+python2 tools/eval.py \
+	--cfg /mnt/fcav/self_training/object_detection/configs/e2e_faster_rcnn_X-101-64x4d-FPN_1x_upperbound1.yaml \
+	TEST.WEIGHTS /mnt/fcav/self_training/object_detection/upperbound1/train/voc_GTA_caronly_train_sample8000:cityscapes_caronly_train/generalized_rcnn \
+	NUM_GPUS 1 \
+	OUTPUT_DIR /mnt/fcav/self_training/object_detection/upperbound1/eval
 ```
 
 visualize baseline
@@ -79,7 +105,11 @@ python2 tools/eval.py \
 	OUTPUT_DIR /mnt/fcav/self_training/object_detection/upperbound2/eval
 ```
 
-The modified version of eval.py will also plot the **precision-recall curve** and save the **corresponding scores** into an excel.
+Use tensorboard
+
+```
+tensorboard --logdir=$OUTPUT_DIR
+```
 
 ## Prediction
 

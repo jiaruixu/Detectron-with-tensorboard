@@ -2,11 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ed5b3b6f-0e07-4da7-8222-4496fb35c393" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/Detectron-with-tensorboard.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Detectron-with-tensorboard.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tools/convert_cityscapes_woannotations_to_coco.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tools/write_name_to_txt.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/drop_annotations.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/drop_annotations_and_resample.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/detectron/datasets/dataset_catalog.py" beforeDir="false" afterPath="$PROJECT_DIR$/detectron/datasets/dataset_catalog.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/detectron/datasets/voc_dataset_evaluator.py" beforeDir="false" afterPath="$PROJECT_DIR$/detectron/datasets/voc_dataset_evaluator.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,7 +23,8 @@
     <SUITE FILE_PATH="coverage/Detectron_with_tensorboard$test_net.coverage" NAME="test_net Coverage Results" MODIFIED="1533742244213" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" />
     <SUITE FILE_PATH="coverage/Detectron_with_tensorboard$drop_annotations.coverage" NAME="drop_annotations Coverage Results" MODIFIED="1533828144309" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Detectron_with_tensorboard$prediction_to_coco_format.coverage" NAME="prediction_to_coco_format Coverage Results" MODIFIED="1533761262965" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" />
-    <SUITE FILE_PATH="coverage/Detectron_with_tensorboard$eval.coverage" NAME="eval Coverage Results" MODIFIED="1533767170582" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" />
+    <SUITE FILE_PATH="coverage/Detectron_with_tensorboard$eval.coverage" NAME="eval Coverage Results" MODIFIED="1534002612049" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" />
+    <SUITE FILE_PATH="coverage/Detectron_with_tensorboard$write_name_to_txt.coverage" NAME="write_name_to_txt Coverage Results" MODIFIED="1534004419163" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" />
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -51,7 +53,7 @@
         <counts>
           <entry key="gitignore" value="1" />
           <entry key="png" value="1" />
-          <entry key="py" value="50" />
+          <entry key="py" value="59" />
           <entry key="yaml" value="4" />
         </counts>
       </usages-collector>
@@ -59,19 +61,19 @@
         <counts>
           <entry key="Image" value="1" />
           <entry key="PLAIN_TEXT" value="1" />
-          <entry key="Python" value="50" />
+          <entry key="Python" value="59" />
           <entry key="YAML" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="8949" />
+          <entry key="py" value="10073" />
           <entry key="yaml" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="8949" />
+          <entry key="Python" value="10073" />
           <entry key="YAML" value="1" />
         </counts>
       </usages-collector>
@@ -79,7 +81,7 @@
     </session>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.81287426">
+    <splitter split-orientation="horizontal" split-proportion="0.11252813">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
@@ -97,7 +99,7 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/tools/infer_simple.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="608">
+                <state relative-caret-position="-186">
                   <caret line="32" selection-start-line="32" selection-end-line="32" selection-end-column="10" />
                 </state>
               </provider>
@@ -106,7 +108,7 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/detectron/utils/vis.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="7144">
+                <state relative-caret-position="3937">
                   <caret line="389" column="55" selection-start-line="389" selection-start-column="55" selection-end-line="389" selection-end-column="55" />
                   <folding>
                     <element signature="e#717#755#0" expanded="true" />
@@ -118,8 +120,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/detectron/core/config.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="3857">
-                  <caret line="219" selection-start-line="219" selection-end-line="219" />
+                <state relative-caret-position="405">
+                  <caret line="1161" column="4" selection-start-line="1161" selection-start-column="4" selection-end-line="1161" selection-end-column="4" />
                 </state>
               </provider>
             </entry>
@@ -127,7 +129,7 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/tools/visualize_results.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="252">
+                <state relative-caret-position="-376">
                   <caret line="63" column="24" selection-start-line="63" selection-start-column="24" selection-end-line="63" selection-end-column="24" />
                 </state>
               </provider>
@@ -136,8 +138,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/tools/drop_annotations_and_resample.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="646">
-                  <caret line="64" column="45" lean-forward="true" selection-start-line="64" selection-start-column="45" selection-end-line="64" selection-end-column="45" />
+                <state relative-caret-position="238">
+                  <caret line="167" column="3" selection-start-line="167" selection-start-column="3" selection-end-line="167" selection-end-column="3" />
                   <folding>
                     <element signature="e#0#38#0" expanded="true" />
                   </folding>
@@ -171,11 +173,11 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/tools/eval.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1181">
-                  <caret line="135" selection-start-line="135" selection-end-line="135" />
+                <state relative-caret-position="151">
+                  <caret line="79" column="7" selection-start-line="79" selection-start-column="7" selection-end-line="79" selection-end-column="7" />
                   <folding>
                     <element signature="e#41#79#0" expanded="true" />
                     <marker date="1533767120363" expanded="true" signature="2866:3698" ph="..." />
@@ -185,10 +187,62 @@
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/tools/convert_cityscapes_to_coco.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="626">
+                  <caret line="45" column="14" selection-start-line="45" selection-start-column="14" selection-end-line="45" selection-end-column="14" />
+                  <folding>
+                    <element signature="e#0#38#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/detectron/datasets/voc_dataset_evaluator.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="419">
+                  <caret line="65" column="25" selection-start-line="65" selection-start-column="25" selection-end-line="65" selection-end-column="34" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/detectron/datasets/json_dataset.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="10">
+                  <caret line="81" column="8" selection-start-line="81" selection-start-column="8" selection-end-line="81" selection-end-column="8" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/detectron/datasets/dataset_catalog.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="493">
+                  <caret line="281" column="4" selection-start-line="281" selection-start-column="4" selection-end-line="281" selection-end-column="4" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/tools/write_name_to_txt.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="550">
+                  <caret line="56" column="26" lean-forward="true" selection-start-line="56" selection-start-column="26" selection-end-line="56" selection-end-column="26" />
+                  <folding>
+                    <element signature="e#0#38#0" expanded="true" />
+                    <marker date="1534004501600" expanded="true" signature="735:758" ph="..." />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/detectron/core/test_engine.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="456">
-                  <caret line="53" selection-start-line="53" selection-end-line="53" />
+                <state relative-caret-position="276">
+                  <caret line="156" selection-start-line="156" selection-end-line="156" />
                   <folding>
                     <element signature="e#732#770#0" expanded="true" />
                   </folding>
@@ -197,22 +251,13 @@
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/detectron/core/test.py">
+            <entry file="file://$PROJECT_DIR$/detectron/datasets/json_dataset_evaluator.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1824">
-                  <caret line="117" column="19" selection-start-line="117" selection-start-column="19" selection-end-line="117" selection-end-column="19" />
+                <state relative-caret-position="533">
+                  <caret line="163" column="25" selection-start-line="163" selection-start-column="25" selection-end-line="163" selection-end-column="25" />
                   <folding>
-                    <element signature="e#991#1029#0" expanded="true" />
+                    <element signature="e#740#778#0" expanded="true" />
                   </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="jar://$USER_HOME$/.local/lib/python2.7/site-packages/pycocotools-2.0-py2.7-linux-x86_64.egg!/pycocotools/coco.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1691">
-                  <caret line="100" column="46" selection-start-line="100" selection-start-column="46" selection-end-line="100" selection-end-column="46" />
                 </state>
               </provider>
             </entry>
@@ -220,20 +265,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/detectron/datasets/task_evaluation.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="703">
-                  <caret line="52" column="7" selection-start-line="52" selection-start-column="4" selection-end-line="52" selection-end-column="16" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/detectron/datasets/json_dataset_evaluator.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="5415">
-                  <caret line="302" column="48" selection-start-line="302" selection-start-column="48" selection-end-line="302" selection-end-column="48" />
-                  <folding>
-                    <element signature="e#740#778#0" expanded="true" />
-                  </folding>
+                <state relative-caret-position="248">
+                  <caret line="255" column="4" selection-start-line="255" selection-start-column="4" selection-end-line="255" selection-end-column="4" />
                 </state>
               </provider>
             </entry>
@@ -251,8 +284,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>evaluate_all</find>
-      <find>test_net_on_dataset</find>
       <find>check</find>
       <find>overlap</find>
       <find>save_object</find>
@@ -281,6 +312,8 @@
       <find>data</find>
       <find>ann_id_list</find>
       <find>argparse</find>
+      <find>test_net_on_dataset</find>
+      <find>entry</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -304,6 +337,8 @@
         <option value="$PROJECT_DIR$/sample_images.py" />
         <option value="$PROJECT_DIR$/drop_annotations_and_resample.py" />
         <option value="$PROJECT_DIR$/tools/drop_annotations_and_resample.py" />
+        <option value="$PROJECT_DIR$/detectron/datasets/voc_dataset_evaluator.py" />
+        <option value="$PROJECT_DIR$/tools/write_name_to_txt.py" />
       </list>
     </option>
   </component>
@@ -315,7 +350,7 @@
   </component>
   <component name="ProjectFrameBounds" extendedState="4">
     <option name="y" value="27" />
-    <option name="width" value="1385" />
+    <option name="width" value="1720" />
     <option name="height" value="1413" />
   </component>
   <component name="ProjectView">
@@ -333,16 +368,12 @@
             <path>
               <item name="Detectron-with-tensorboard" type="b2602c69:ProjectViewProjectNode" />
               <item name="Detectron-with-tensorboard" type="462c0819:PsiDirectoryNode" />
+              <item name="detectron" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Detectron-with-tensorboard" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Detectron-with-tensorboard" type="462c0819:PsiDirectoryNode" />
               <item name="tools" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Detectron-with-tensorboard" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-            </path>
-            <path>
-              <item name="Detectron-with-tensorboard" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 2.7 &gt;" type="70bed36:NamedLibraryElementNode" />
             </path>
           </expand>
           <select />
@@ -382,6 +413,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/tools" />
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
@@ -397,7 +429,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.drop_annotations_and_resample">
+  <component name="RunManager" selected="Python.write_name_to_txt">
     <configuration name="drop_annotations" type="PythonConfigurationType" factoryName="Python">
       <module name="Detectron-with-tensorboard" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -468,7 +500,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tools/eval.py" />
-      <option name="PARAMETERS" value="--cfg $PROJECT_DIR$/configs/12_2017_baselines/e2e_faster_rcnn_X-101-64x4d-FPN_1x.yaml TEST.WEIGHTS /mnt/fcav/self_training/object_detection/upperbound1/train/voc_GTA_caronly_train:cityscapes_caronly_train:voc_GTA_caronly_val/generalized_rcnn NUM_GPUS 1 OUTPUT_DIR /mnt/data/object_detection/upperbound1/eval" />
+      <option name="PARAMETERS" value="--cfg /mnt/fcav/self_training/object_detection/configs/e2e_faster_rcnn_X-101-64x4d-FPN_1x_lowerbound.yaml TEST.WEIGHTS /mnt/fcav/self_training/object_detection/lowerbound/train/voc_GTA_caronly_train_sample8000/generalized_rcnn NUM_GPUS 1 OUTPUT_DIR /mnt/data/object_detection/upperbound1/eval" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -606,6 +638,32 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="write_name_to_txt" type="PythonConfigurationType" factoryName="Python">
+      <module name="Detectron-with-tensorboard" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="PATH" value="/usr/local/cuda/bin:$PATH" />
+        <env name="LD_LIBRARY_PATH" value="/usr/local/cuda/lib64:/usr/local/cuda/include:$LD_LIBRARY_PATH" />
+        <env name="COCOAPI" value="$PROJECT_DIR$/../cocoapi" />
+        <env name="DETECTRON" value="$PROJECT_DIR$/../detectron" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tools" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tools/write_name_to_txt.py" />
+      <option name="PARAMETERS" value="--json-dir /mnt/fcav/self_training/object_detection/dataset/GTA_Pascal_format/Annotations/instances_caronly_val_sample2000.json --output-dir /mnt/fcav/self_training/object_detection/dataset/GTA_Pascal_format/VOCdevkit2012/VOC2012/ImageSets/Main" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Python.train_net" />
       <item itemvalue="Python.eval" />
@@ -615,6 +673,7 @@
       <item itemvalue="Python.prediction_to_coco_format" />
       <item itemvalue="Python.drop_annotations" />
       <item itemvalue="Python.drop_annotations_and_resample" />
+      <item itemvalue="Python.write_name_to_txt" />
     </list>
   </component>
   <component name="SvnConfiguration">
@@ -631,10 +690,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="27" width="1385" height="1413" extended-state="4" />
+    <frame x="0" y="27" width="1720" height="1413" extended-state="4" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2528048" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20215312" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -666,21 +725,180 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+        <line-breakpoint suspend="THREAD" type="python-line">
           <url>file:///mnt/data/object_detection/COCO/view_jason_results.py</url>
           <line>7</line>
           <option name="timeStamp" value="11" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+        <line-breakpoint suspend="THREAD" type="python-line">
           <url>file:///mnt/data/object_detection/COCO/view_jason_results.py</url>
           <line>6</line>
           <option name="timeStamp" value="12" />
         </line-breakpoint>
+        <line-breakpoint suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/detectron/datasets/voc_dataset_evaluator.py</url>
+          <line>45</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/detectron/datasets/task_evaluation.py</url>
+          <line>91</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/detectron/core/test_engine.py</url>
+          <line>104</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/detectron/datasets/voc_dataset_evaluator.py</url>
+          <line>66</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
       </breakpoints>
+      <breakpoints-dialog>
+        <breakpoints-dialog />
+      </breakpoints-dialog>
     </breakpoint-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateCodeFragment">
+      <expression>
+        <expression-string>year = '2012'
+dataset.name = 'voc_GTA_caronly_val_sample2000'
+if dataset.name.find('trainval') != -1:
+    image_set = 'trainval'
+elif dataset.name.find('val') != -1:
+    image_set = 'val'
+elif dataset.name.find('train') != -1:
+    image_set = 'train'
+else:
+    raise ValueError('dataset name should specify train, val or trainval')
+devkit_path = '/mnt/fcav/self_training/object_detection/dataset/GTA_Pascal_format/VOCdevkit2012'
+assert os.path.exists(devkit_path), \
+    'Devkit directory {} not found'.format(devkit_path)
+anno_path = os.path.join(
+    devkit_path, 'VOC' + year, 'Annotations', '{:s}.xml')
+image_set_path = os.path.join(
+    devkit_path, 'VOC' + year, 'ImageSets', 'Main', image_set + '.txt')</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>year = 2012
+dataset.name = 'voc_GTA_caronly_val_sample2000'
+if dataset.name.find('trainval') != -1:
+    image_set = 'trainval'
+elif dataset.name.find('val') != -1:
+    image_set = 'val'
+elif dataset.name.find('train') != -1:
+    image_set = 'train'
+else:
+    raise ValueError('dataset name should specify train, val or trainval')
+devkit_path = '/mnt/fcav/self_training/object_detection/dataset/GTA_Pascal_format/VOCdevkit2012'
+assert os.path.exists(devkit_path), \
+    'Devkit directory {} not found'.format(devkit_path)
+anno_path = os.path.join(
+    devkit_path, 'VOC' + year, 'Annotations', '{:s}.xml')
+image_set_path = os.path.join(
+    devkit_path, 'VOC' + year, 'ImageSets', 'Main', image_set + '.txt')</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>year = 2012
+dataset.name = 'voc_GTA_caronly_val_sample2000'
+if dataset.name.find('trainval') != -1:
+    image_set = 'trainval'
+elif dataset.name.find('val') != -1:
+    image_set = 'val'
+elif dataset.name.find('train') != -1:
+    image_set = 'train'
+else:
+    raise ValueError('dataset name should specify train, val or trainval')
+devkit_path = '/GTA_Pascal_format/VOCdevkit2012'
+assert os.path.exists(devkit_path), \
+    'Devkit directory {} not found'.format(devkit_path)
+anno_path = os.path.join(
+    devkit_path, 'VOC' + year, 'Annotations', '{:s}.xml')
+image_set_path = os.path.join(
+    devkit_path, 'VOC' + year, 'ImageSets', 'Main', image_set + '.txt')</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>year = 2012
+dataset.name = 'voc_GTA_caronly_val_sample2000'
+if dataset.name.find('trainval') != -1:
+    image_set = 'trainval'
+elif dataset.name.find('val') != -1:
+    image_set = 'val'
+elif dataset.name.find('train') != -1:
+    image_set = 'train'
+else:
+    raise ValueError('dataset name should specify train, val or trainval')
+devkit_path = get_devkit_dir(json_dataset.name)
+assert os.path.exists(devkit_path), \
+    'Devkit directory {} not found'.format(devkit_path)
+anno_path = os.path.join(
+    devkit_path, 'VOC' + year, 'Annotations', '{:s}.xml')
+image_set_path = os.path.join(
+    devkit_path, 'VOC' + year, 'ImageSets', 'Main', image_set + '.txt')</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>dataset.name = 'tr'
+if dataset.name.find('trainval') != -1:
+    image_set = 'trainval'
+elif dataset.name.find('val') != -1:
+    image_set = 'val'
+elif dataset.name.find('train') != -1:
+    image_set = 'train'
+else:
+    raise ValueError('dataset name should specify train, val or trainval')</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>dataset.name = 'val'
+if dataset.name.find('trainval') != -1:
+    image_set = 'trainval'
+elif dataset.name.find('val') != -1:
+    image_set = 'val'
+elif dataset.name.find('train') != -1:
+    image_set = 'train'
+else:
+    raise ValueError('dataset name should specify train, val or trainval')</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>dataset.name = 'train'
+if dataset.name.find('trainval') != -1:
+    image_set = 'trainval'
+elif dataset.name.find('val') != -1:
+    image_set = 'val'
+elif dataset.name.find('train') != -1:
+    image_set = 'train'
+else:
+    raise ValueError('dataset name should specify train, val or trainval')</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>dataset.name = 'trainval'
+if dataset.name.find('trainval') != -1:
+    image_set = 'trainval'
+elif dataset.name.find('val') != -1:
+    image_set = 'val'
+elif dataset.name.find('train') != -1:
+    image_set = 'train'
+else:
+    raise ValueError('dataset name should specify train, val or trainval')</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>a = []
 if len(a) == 0:
@@ -688,53 +906,38 @@ if len(a) == 0:
         <language-id>Python</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
-      <expression>
-        <expression-string>from random import sample
-s = xrange(5)</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>from random import sample
-s = sample(xrange(20), 5)</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>from random import sample
-sample(xrange(20), 5)</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>image_dict[image_id]</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>annotations[0]</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>a = range(5)</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>count -= 1</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>a = range(5)
-from random import shuffle
-a1 = a[0:3]</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
     </expressions>
     <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>dataset.name.find('val')</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>os.path.basename(args.annotation_dir).find('val')</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>os.path.basename(args.annotation_dir).find('train')</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>os.path.bathname(args.annotation_dir).find('train')</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>args.annotation_dir.find('train')</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>args.annotation_dir.find('val')</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>int(round(args.drop_rate * annotations_num))</expression-string>
         <language-id>Python</language-id>
@@ -752,31 +955,6 @@ a1 = a[0:3]</expression-string>
       </expression>
       <expression>
         <expression-string>image_dict[image_id]</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>data[u'licenses']</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>data[u'info']</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>data[u'images'][0]</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>len(data[u'images'])</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>name,_ = os.path.splitext(os.path.basename(args.annotation_dir))</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -852,13 +1030,6 @@ a1 = a[0:3]</expression-string>
         </state>
       </provider>
     </entry>
-    <entry file="file:///usr/local/lib/python2.7/dist-packages/caffe2/python/workspace.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="190" selection-start-line="190" selection-end-line="190" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/detectron/utils/training_stats.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
@@ -899,9 +1070,6 @@ a1 = a[0:3]</expression-string>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="114">
           <caret line="6" selection-start-line="6" selection-end-line="6" />
-          <folding>
-            <element signature="e#0#33#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -940,30 +1108,6 @@ a1 = a[0:3]</expression-string>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tools/infer_simple.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="608">
-          <caret line="32" selection-start-line="32" selection-end-line="32" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/detectron/utils/vis.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7144">
-          <caret line="389" column="55" selection-start-line="389" selection-start-column="55" selection-end-line="389" selection-end-column="55" />
-          <folding>
-            <element signature="e#717#755#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/detectron/core/config.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3857">
-          <caret line="219" selection-start-line="219" selection-end-line="219" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/drop_annotations.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="973">
@@ -992,27 +1136,6 @@ a1 = a[0:3]</expression-string>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tools/eval.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1181">
-          <caret line="135" selection-start-line="135" selection-end-line="135" />
-          <folding>
-            <element signature="e#41#79#0" expanded="true" />
-            <marker date="1533767120363" expanded="true" signature="2866:3698" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/detectron/core/test_engine.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="53" selection-start-line="53" selection-end-line="53" />
-          <folding>
-            <element signature="e#732#770#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/detectron/core/test.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1824">
@@ -1030,23 +1153,6 @@ a1 = a[0:3]</expression-string>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/detectron/datasets/task_evaluation.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="703">
-          <caret line="52" column="7" selection-start-line="52" selection-start-column="4" selection-end-line="52" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/detectron/datasets/json_dataset_evaluator.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5415">
-          <caret line="302" column="48" selection-start-line="302" selection-start-column="48" selection-end-line="302" selection-end-column="48" />
-          <folding>
-            <element signature="e#740#778#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/drop_annotations_and_resample.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1006">
@@ -1057,19 +1163,144 @@ a1 = a[0:3]</expression-string>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/detectron/utils/logging.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1007">
+          <caret line="73" column="4" selection-start-line="73" selection-start-column="4" selection-end-line="73" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/infer_simple.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-186">
+          <caret line="32" selection-start-line="32" selection-end-line="32" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/detectron/utils/vis.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3937">
+          <caret line="389" column="55" selection-start-line="389" selection-start-column="55" selection-end-line="389" selection-end-column="55" />
+          <folding>
+            <element signature="e#717#755#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/tools/visualize_results.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
+        <state relative-caret-position="-376">
           <caret line="63" column="24" selection-start-line="63" selection-start-column="24" selection-end-line="63" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/convert_cityscapes_woannotations_to_coco.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2033">
+          <caret line="25" column="40" lean-forward="true" selection-start-line="25" selection-start-column="40" selection-end-line="25" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/lib/python2.7/dist-packages/caffe2/python/workspace.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="244">
+          <caret line="190" selection-start-line="190" selection-end-line="190" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/convert_cityscapes_to_coco.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="626">
+          <caret line="45" column="14" selection-start-line="45" selection-start-column="14" selection-end-line="45" selection-end-column="14" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/detectron/core/config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="1161" column="4" selection-start-line="1161" selection-start-column="4" selection-end-line="1161" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/detectron/datasets/task_evaluation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="255" column="4" selection-start-line="255" selection-start-column="4" selection-end-line="255" selection-end-column="4" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tools/drop_annotations_and_resample.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="64" column="45" lean-forward="true" selection-start-line="64" selection-start-column="45" selection-end-line="64" selection-end-column="45" />
+        <state relative-caret-position="238">
+          <caret line="167" column="3" selection-start-line="167" selection-start-column="3" selection-end-line="167" selection-end-column="3" />
           <folding>
             <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/detectron/datasets/json_dataset_evaluator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="533">
+          <caret line="163" column="25" selection-start-line="163" selection-start-column="25" selection-end-line="163" selection-end-column="25" />
+          <folding>
+            <element signature="e#740#778#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/detectron/core/test_engine.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="156" selection-start-line="156" selection-end-line="156" />
+          <folding>
+            <element signature="e#732#770#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/eval.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="151">
+          <caret line="79" column="7" selection-start-line="79" selection-start-column="7" selection-end-line="79" selection-end-column="7" />
+          <folding>
+            <element signature="e#41#79#0" expanded="true" />
+            <marker date="1533767120363" expanded="true" signature="2866:3698" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/detectron/datasets/voc_dataset_evaluator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="419">
+          <caret line="65" column="25" selection-start-line="65" selection-start-column="25" selection-end-line="65" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/detectron/datasets/json_dataset.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="10">
+          <caret line="81" column="8" selection-start-line="81" selection-start-column="8" selection-end-line="81" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/detectron/datasets/dataset_catalog.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="281" column="4" selection-start-line="281" selection-start-column="4" selection-end-line="281" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/write_name_to_txt.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="550">
+          <caret line="56" column="26" lean-forward="true" selection-start-line="56" selection-start-column="26" selection-end-line="56" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+            <marker date="1534004501600" expanded="true" signature="735:758" ph="..." />
           </folding>
         </state>
       </provider>
