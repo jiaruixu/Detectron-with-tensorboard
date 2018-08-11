@@ -38,19 +38,19 @@ _RAW_DIR = 'raw_dir'
 
 # Available datasets
 _DATASETS = {
-    'voc_GTA_caronly_train':{
+    'voc_GTA_caronly_train_sample8000':{
         _IM_DIR:
             _DATA_DIR + '/GTA_Pascal_format/JPEGImages',
         _ANN_FN:
-            _DATA_DIR + '/GTA_Pascal_format/Annotations/instances_caronly_train.json',
+            _DATA_DIR + '/GTA_Pascal_format/Annotations/instances_caronly_train_sample8000.json',
         _DEVKIT_DIR:
             _DATA_DIR + '/GTA_Pascal_format/VOCdevkit2012'
     },
-    'voc_GTA_caronly_val':{
+    'voc_GTA_caronly_val_sample2000':{
         _IM_DIR:
             _DATA_DIR + '/GTA_Pascal_format/JPEGImages',
         _ANN_FN:
-            _DATA_DIR + '/GTA_Pascal_format/Annotations/instances_caronly_val.json',
+            _DATA_DIR + '/GTA_Pascal_format/Annotations/instances_caronly_val_sample2000.json',
         _DEVKIT_DIR:
             _DATA_DIR + '/GTA_Pascal_format/VOCdevkit2012'
     },
