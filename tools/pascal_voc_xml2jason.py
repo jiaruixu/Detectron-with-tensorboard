@@ -10,14 +10,13 @@ coco['categories'] = []
 
 category_set = dict()
 image_set = set()
-
 category_item_id = 0
-image_id = 20180000000
+image_id = 0
 annotation_id = 0
 
 TXT_FOLDER_MAP = {
-    'train': '/mnt/fcav/failing_to_learn/datasets/Sim200k/main/training.txt',
-    'val': '/mnt/fcav/failing_to_learn/datasets/Sim200k/main/testing.txt',
+    'train': '/mnt/fcav/self_training/object_detection/dataset/GTA_Pascal_format/VOCdevkit2012/VOC2012/ImageSets/Main/train.txt',
+    'val': '/mnt/fcav/self_training/object_detection/dataset/GTA_Pascal_format/VOCdevkit2012/VOC2012/ImageSets/Main/val.txt',
 }
 
 def addCatItem(name):
@@ -182,7 +181,7 @@ if __name__ == '__main__':
     xml_path = '/mnt/fcav/PASCAL/repro_200k_filter/VOC2012/Annotations'
     #txt_dirs = '/mnt/fcav/failing_to_learn/datasets/Sim200k/main/training.txt'
     # '/mnt/fcav/failing_to_learn/datasets/Sim200k/main/testing.txt'
-    for set in ['train', 'val']:
-        json_file = '/mnt/data/object_detection/fasterrcnn_GTA/GTA_Pascal_format/Annotations/instances_caronly_%s.json' % set
+    for set in ['train']:  # ['val']
+        json_file = '/mnt/fcav/self_training/object_detection/dataset/GTA_Pascal_format/Annotations/instances_caronly_sample_%s.json' % set
         parseXmlFiles(xml_path, TXT_FOLDER_MAP[set])
         json.dump(coco, open(json_file, 'w'))

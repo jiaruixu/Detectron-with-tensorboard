@@ -11,6 +11,15 @@ This repository use [c2board](https://github.com/endernewton/c2board) to visuali
 1. Extract only car annotations of GTA and Cityscapes.
 2. Convert annotations to COCO format.
 
+### Cityscapes to COCO Information
+
+```
+python2 tools/convert_cityscapes_to_coco.py \
+	--dataset cityscapes_instance_only \
+	--outdir /mnt/fcav/self_training/object_detection/dataset/cityscapes/annotations \
+	--datadir /mnt/fcav/continuous_learning/datasets/cityscapes/raw
+```
+
 ### Sample GTA dataset
 
 Extract 8000 images with car annoations as train set and 2000 images with car annotations as valiation set.
@@ -65,7 +74,7 @@ Use `DetectronDocker` repository
 
 `eval.py` will plot the **precision-recall curve** and save the **corresponding scores** into an excel. While evaluating, you can also use tensorboard to visualize the change of average precision. It dumps the info in the output folder of Detectron by default.
 
-visualize lower bound
+### visualize lower bound
 
 ```
 python2 tools/eval.py \
@@ -75,7 +84,17 @@ python2 tools/eval.py \
 	OUTPUT_DIR /mnt/fcav/self_training/object_detection/lowerbound/eval
 ```
 
-visualize upperbound1
+visualize lower bound on Cityscapes
+
+```
+python2 tools/eval.py \
+	--cfg /mnt/fcav/self_training/object_detection/configs/e2e_faster_rcnn_X-101-64x4d-FPN_1x_lowerbound_eval.yaml \
+	TEST.WEIGHTS /mnt/fcav/self_training/object_detection/lowerbound/train/voc_GTA_caronly_train_sample8000/generalized_rcnn \
+	NUM_GPUS 1 \
+	OUTPUT_DIR /mnt/fcav/self_training/object_detection/lowerbound/eval
+```
+
+### visualize upperbound1
 
 ```
 python2 tools/eval.py \
@@ -85,7 +104,7 @@ python2 tools/eval.py \
 	OUTPUT_DIR /mnt/fcav/self_training/object_detection/upperbound1/eval
 ```
 
-visualize baseline
+### visualize baseline
 
 ```
 python2 tools/eval.py \
@@ -95,20 +114,42 @@ python2 tools/eval.py \
 	OUTPUT_DIR /mnt/fcav/self_training/object_detection/baseline/eval
 ```
 
-visualize upperbound2
+### visualize upperbound2
 
 ```
 python2 tools/eval.py \
 	--cfg /mnt/fcav/self_training/object_detection/configs/e2e_faster_rcnn_X-101-64x4d-FPN_1x_upperbound2.yaml \
-	TEST.WEIGHTS /mnt/fcav/self_training/object_detection/upperbound2/train/voc_GTA_caronly_train:cityscapes_caronly_train_with_dropannotations:voc_GTA_caronly_val/generalized_rcnn \
+	TEST.WEIGHTS /mnt/fcav/self_training/object_detection/upperbound2/train/voc_GTA_caronly_train_sample8000:cityscapes_caronly_train_with_dropannotations/generalized_rcnn \
 	NUM_GPUS 1 \
 	OUTPUT_DIR /mnt/fcav/self_training/object_detection/upperbound2/eval
 ```
 
-Use tensorboard
+### Use tensorboard
 
 ```
 tensorboard --logdir=$OUTPUT_DIR
+```
+
+## evaluate on cityscapes
+
+lowerbound
+
+```
+python2 tools/test_net.py \
+	--cfg /mnt/fcav/self_training/object_detection/configs/e2e_faster_rcnn_X-101-64x4d-FPN_1x_lowerbound_eval.yaml \
+	TEST.WEIGHTS /mnt/fcav/self_training/object_detection/lowerbound/train/voc_GTA_caronly_train_sample8000/generalized_rcnn/model_iter159999.pkl \
+	NUM_GPUS 1 \
+	OUTPUT_DIR /mnt/fcav/self_training/object_detection/lowerbound/eval
+```
+
+upperbound1
+
+```
+python2 tools/test_net.py \
+	--cfg /mnt/fcav/self_training/object_detection/configs/e2e_faster_rcnn_X-101-64x4d-FPN_1x_upperbound1_eval.yaml \
+	TEST.WEIGHTS /mnt/fcav/self_training/object_detection/upperbound1/train/voc_GTA_caronly_train_sample8000:cityscapes_caronly_train/generalized_rcnn/model_iter69999.pkl \
+	NUM_GPUS 1 \
+	OUTPUT_DIR /mnt/fcav/self_training/object_detection/upperbound1/eval
 ```
 
 ## Prediction
@@ -118,10 +159,15 @@ predict with lowerbound
 ```
 python2 tools/test_net.py \
   --cfg /mnt/fcav/self_training/object_detection/configs/e2e_faster_rcnn_X-101-64x4d-FPN_1x_lowerbound_prediction.yaml \
-	--vis \
-  TEST.WEIGHTS /mnt/fcav/self_training/object_detection/lowerbound/train/voc_GTA_caronly_train:voc_GTA_caronly_val/generalized_rcnn/model_iter34999.pkl \
+  TEST.WEIGHTS /mnt/fcav/self_training/object_detection/lowerbound/train/voc_GTA_caronly_train_sample8000/generalized_rcnn/model_iter159999.pkl \
   NUM_GPUS 1 \
   OUTPUT_DIR /mnt/fcav/self_training/object_detection/lowerbound/prediction_on_cityscapes_train
+
+python2 tools/test_net.py \
+	--cfg /mnt/fcav/self_training/object_detection/configs/e2e_faster_rcnn_X-101-64x4d-FPN_1x_lowerbound_eval.yaml \
+	TEST.WEIGHTS /mnt/fcav/self_training/object_detection/lowerbound/train/voc_GTA_caronly_train_sample8000/generalized_rcnn/model_iter159999.pkl \
+	NUM_GPUS 1 \
+	OUTPUT_DIR /mnt/fcav/self_training/object_detection/lowerbound/prediction_on_cityscapes_val
 ```
 
 visualize prediction

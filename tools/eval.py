@@ -92,30 +92,50 @@ def checkNewCheckpoint(args, cfg, logger):
             logger.info('{} evaluating...'.format(time.ctime()))
             eval(args, cfg, logger, file_not_processed)
             file_processed = deepcopy(files)
+        else:
+            logger.info('{} waiting for new checkpoint...'.format(time.ctime()))
+            time.sleep(1520)
 
-        logger.info('{} waiting for new checkpoint...'.format(time.ctime()))
-        time.sleep(1520)
 
-def eval(args, cfg, logger, files):
+def sortMethod(f):
+    if f.find('model_final') != -1:
+        return sys.maxint
+    else:
+        iter_string = re.findall(r'(?<=model_iter)\d+(?=\.pkl)', f)
+        return int(iter_string[0])
+
+def extract(files):
+    files_new = []
     for f in files:
         iter_string = re.findall(r'(?<=model_iter)\d+(?=\.pkl)', f)
-        if len(iter_string) > 0:  ## and (int(iter_string[0]) == 34999):
-            checkpoint_iter = int(iter_string[0])
-            resume_weights_file = f
-            weights_file = os.path.join(cfg.TEST.WEIGHTS, resume_weights_file)
-            logger.info(
-                '========> Resuming from checkpoint {} at iter {}'.
-                    format(weights_file, checkpoint_iter)
-            )
+        if (len(iter_string) > 0 or f.find('model_final') != -1) and (int(iter_string[0]) > 70000):
+            files_new.append(f)
+    return files_new
 
-            run_inference(
-                weights_file,
-                ind_range=args.range,
-                multi_gpu_testing=args.multi_gpu_testing,
-                check_expected_results=True,
-                checkpoint_iter=checkpoint_iter,
-                use_tfboard=args.use_tfboard if args.use_tfboard else None,
-            )
+def eval(args, cfg, logger, files):
+    files = extract(files)
+    files.sort(key=sortMethod)
+    for f in files:
+        iter_string = re.findall(r'(?<=model_iter)\d+(?=\.pkl)', f)
+        if len(iter_string) > 0:
+            checkpoint_iter = int(iter_string[0])
+        else:
+            checkpoint_iter = checkpoint_iter + 5000
+        resume_weights_file = f
+        weights_file = os.path.join(cfg.TEST.WEIGHTS, resume_weights_file)
+        logger.info(
+            '========> Resuming from checkpoint {} at iter {}'.
+                format(weights_file, checkpoint_iter)
+        )
+
+        run_inference(
+            weights_file,
+            ind_range=args.range,
+            multi_gpu_testing=args.multi_gpu_testing,
+            check_expected_results=True,
+            checkpoint_iter=checkpoint_iter,
+            use_tfboard=args.use_tfboard if args.use_tfboard else None,
+        )
 
 
 if __name__ == '__main__':

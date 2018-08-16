@@ -40,11 +40,13 @@ def evaluate_boxes(
     output_dir,
     use_salt=True,
     cleanup=True,
-    use_matlab=False
+    use_matlab=False,
+    checkpoint_iter=None,
+    tblogger=None
 ):
     salt = '_{}'.format(str(uuid.uuid4())) if use_salt else ''
     filenames = _write_voc_results_files(json_dataset, all_boxes, salt)
-    _do_python_eval(json_dataset, salt, output_dir)
+    _do_python_eval(json_dataset, salt, output_dir, checkpoint_iter=checkpoint_iter, tblogger=tblogger)
     if use_matlab:
         _do_matlab_eval(json_dataset, salt, output_dir)
     if cleanup:
@@ -101,7 +103,7 @@ def _get_voc_results_file_template(json_dataset, salt):
     return os.path.join(devkit_path, 'results', 'VOC' + year, 'Main', filename)
 
 
-def _do_python_eval(json_dataset, salt, output_dir='output'):
+def _do_python_eval(json_dataset, salt, output_dir='output', checkpoint_iter=None, tblogger=None):
     info = voc_info(json_dataset)
     year = info['year']
     anno_path = info['anno_path']
@@ -126,6 +128,10 @@ def _do_python_eval(json_dataset, salt, output_dir='output'):
         logger.info('AP for {} = {:.4f}'.format(cls, ap))
         res_file = os.path.join(output_dir, cls + '_pr.pkl')
         save_object({'rec': rec, 'prec': prec, 'ap': ap}, res_file)
+
+    if tblogger:
+        tblogger.write_scalars({"average_precision": np.mean(aps)}, checkpoint_iter)
+
     logger.info('Mean AP = {:.4f}'.format(np.mean(aps)))
     logger.info('~~~~~~~~')
     logger.info('Results:')

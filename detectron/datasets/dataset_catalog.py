@@ -58,7 +58,7 @@ _DATASETS = {
         _IM_DIR:
             _DATA_DIR + '/cityscapes/images',
         _ANN_FN:
-            _DATA_DIR + '/cityscapes/annotations/instancesonly_filtered_gtFine_train.json',
+            _DATA_DIR + '/cityscapes/annotations/instances_caronly_train.json',
         _RAW_DIR:
             _DATA_DIR + '/cityscapes/raw'
     },
@@ -66,7 +66,7 @@ _DATASETS = {
         _IM_DIR:
             _DATA_DIR + '/cityscapes/images',
         _ANN_FN:
-            _DATA_DIR + '/cityscapes/annotations/instancesonly_filtered_gtFine_val.json',
+            _DATA_DIR + '/cityscapes/annotations/instances_caronly_val.json',
         _RAW_DIR:
             _DATA_DIR + '/cityscapes/raw'
     },
