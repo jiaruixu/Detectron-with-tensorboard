@@ -8,16 +8,16 @@ import json
 import os
 
 FOLDER_MAP = {
-    'train': '/mnt/fcav/self_training/object_detection/dataset/cityscapes/annotations/instances_caronly_train.json',
-    'val': '/mnt/fcav/self_training/object_detection/dataset/cityscapes/annotations/instances_caronly_val.json',
+    'train': '/mnt/fcav/self_training/object_detection/dataset/VOC/annotations/instances_caronly_sample_train.json',
+    'val': '/mnt/fcav/self_training/object_detection/dataset/VOC/annotations/instances_caronly_sample_val.json',
 }
 
 OUTPUT_MAP = {
-    'train': '/mnt/fcav/self_training/object_detection/dataset/cityscapes/vis/train',
-    'val': '/mnt/fcav/self_training/object_detection/dataset/cityscapes/vis/val',
+    'train': '/mnt/fcav/self_training/object_detection/dataset/VOC/vis_drop/train',
+    'val': '/mnt/fcav/self_training/object_detection/dataset/VOC/vis/val',
 }
 
-data_dir = '/mnt/fcav/self_training/object_detection/dataset/cityscapes/images'
+data_dir = '/mnt/fcav/self_training/object_detection/dataset/VOC/JPEGImages'
 
 for data_set in ['train', 'val']:
     with open(FOLDER_MAP[data_set ]) as f:

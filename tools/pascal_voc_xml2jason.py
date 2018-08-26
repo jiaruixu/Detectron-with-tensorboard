@@ -15,8 +15,8 @@ image_id = 0
 annotation_id = 0
 
 TXT_FOLDER_MAP = {
-    'train': '/mnt/fcav/self_training/object_detection/dataset/GTA_Pascal_format/VOCdevkit2012/VOC2012/ImageSets/Main/train.txt',
-    'val': '/mnt/fcav/self_training/object_detection/dataset/GTA_Pascal_format/VOCdevkit2012/VOC2012/ImageSets/Main/val.txt',
+    'train': '/mnt/fcav/self_training/object_detection/dataset/VOC/train.txt',
+    'val': '/mnt/fcav/self_training/object_detection/dataset/VOC/val.txt',
 }
 
 def addCatItem(name):
@@ -97,6 +97,7 @@ def parseXmlFiles(xml_path, txt_dirs):
         # xml_file = os.path.join(xml_path, f)
             pattern = ('%s.xml') % line.strip()
             xml_file = os.path.join(xml_path, pattern)
+            # xml_file = '/mnt/fcav/self_training/object_detection/dataset/GTA_Pascal_format/VOCdevkit2012/VOC2012/Annotations/2979113.xml'
             print(xml_file)
 
             tree = ET.parse(xml_file)
@@ -178,10 +179,10 @@ def parseXmlFiles(xml_path, txt_dirs):
                         addAnnoItem(object_name, current_image_id, current_category_id, bbox )
 
 if __name__ == '__main__':
-    xml_path = '/mnt/fcav/PASCAL/repro_200k_filter/VOC2012/Annotations'
+    xml_path = '/mnt/ngv/datasets/VOC/VOCdevkit/VOC2012/Annotations'
     #txt_dirs = '/mnt/fcav/failing_to_learn/datasets/Sim200k/main/training.txt'
     # '/mnt/fcav/failing_to_learn/datasets/Sim200k/main/testing.txt'
     for set in ['train']:  # ['val']
-        json_file = '/mnt/fcav/self_training/object_detection/dataset/GTA_Pascal_format/Annotations/instances_caronly_sample_%s.json' % set
+        json_file = '/mnt/fcav/self_training/object_detection/dataset/VOC/annotations/instances_caronly_sample_%s.json' % set
         parseXmlFiles(xml_path, TXT_FOLDER_MAP[set])
         json.dump(coco, open(json_file, 'w'))

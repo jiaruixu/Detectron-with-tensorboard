@@ -16,7 +16,7 @@ def parse_args():
         '--annotation-dir',
         dest='annotation_dir',
         help='annotation directory',
-        default='/mnt/fcav/self_training/object_detection/dataset/COCO/annotations/instances_val2014.json',
+        default='/mnt/fcav/self_training/object_detection/dataset/VOC/annotations/instances_caronly_sample_train.json',
         type=str
     )
     parser.add_argument(
@@ -30,12 +30,12 @@ def parse_args():
         '--output-dir',
         dest='output_dir',
         help='output directory',
-        default='',
+        default='/mnt/fcav/self_training/object_detection/dataset/VOC/annotations',
         type=str
     )
-    if len(sys.argv) == 1:
-        parser.print_help()
-        sys.exit(1)
+    # if len(sys.argv) == 1:
+    #    parser.print_help()
+    #    sys.exit(1)
     args = parser.parse_args()
     return args
 
