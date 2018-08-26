@@ -72,6 +72,13 @@ def parse_args():
         action='store_false'
     )
     parser.add_argument(
+        '--start-checkpoint',
+        dest='start_checkpoint',
+        help='start checkpoint (exclusive)',
+        default=0,
+        type=int,
+    )
+    parser.add_argument(
         'opts',
         help='See detectron/core/config.py for all options',
         default=None,
@@ -98,17 +105,14 @@ def checkNewCheckpoint(args, cfg, logger):
 
 
 def sortMethod(f):
-    if f.find('model_final') != -1:
-        return sys.maxint
-    else:
-        iter_string = re.findall(r'(?<=model_iter)\d+(?=\.pkl)', f)
-        return int(iter_string[0])
+    iter_string = re.findall(r'(?<=model_iter)\d+(?=\.pkl)', f)
+    return int(iter_string[0])
 
 def extract(files):
     files_new = []
     for f in files:
         iter_string = re.findall(r'(?<=model_iter)\d+(?=\.pkl)', f)
-        if (len(iter_string) > 0 or f.find('model_final') != -1) and (int(iter_string[0]) > 70000):
+        if len(iter_string) > 0 and (int(iter_string[0]) > args.start_checkpoint):
             files_new.append(f)
     return files_new
 
@@ -117,10 +121,7 @@ def eval(args, cfg, logger, files):
     files.sort(key=sortMethod)
     for f in files:
         iter_string = re.findall(r'(?<=model_iter)\d+(?=\.pkl)', f)
-        if len(iter_string) > 0:
-            checkpoint_iter = int(iter_string[0])
-        else:
-            checkpoint_iter = checkpoint_iter + 5000
+        checkpoint_iter = int(iter_string[0])
         resume_weights_file = f
         weights_file = os.path.join(cfg.TEST.WEIGHTS, resume_weights_file)
         logger.info(
