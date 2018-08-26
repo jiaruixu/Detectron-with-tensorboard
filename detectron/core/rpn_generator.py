@@ -59,7 +59,9 @@ def generate_rpn_on_dataset(
     _proposal_file_ignored,
     output_dir,
     multi_gpu=False,
-    gpu_id=0
+    gpu_id=0,
+    checkpoint_iter=None,
+    use_tfboard=None
 ):
     """Run inference on a dataset."""
     dataset = JsonDataset(dataset_name)
