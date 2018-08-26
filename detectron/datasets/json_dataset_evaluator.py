@@ -323,6 +323,88 @@ def _log_detection_eval_metrics(json_dataset, coco_eval, output_dir=None, checkp
     plt.savefig('{}/Precision-recall-curve-of-checkpoint{}(large area).png'.format(output_dir, checkpoint_iter))
     plt.close()
 
+
+    # write iou of each annotation to excel
+    writer = pd.ExcelWriter('{}/ious_checkpoint{}.xlsx'.format(output_dir, checkpoint_iter),
+                            engine='xlsxwriter')
+    ious = coco_eval.ious
+    # dts = coco_eval._dts
+    # gts = coco_eval._gts
+    image_id_list = []
+    image_name_list = []
+    x_list = []
+    y_list = []
+    w_list = []
+    h_list = []
+    area_list = []
+    score_list = []
+    iou_list = []
+    gt_x_list = []
+    gt_y_list = []
+    gt_w_list = []
+    gt_h_list = []
+    gt_area_list = []
+
+    for image_id in coco_eval.params.imgIds:
+        cat_id = 1
+        dts = coco_eval._dts[image_id, cat_id]
+        gts = coco_eval._gts[image_id, cat_id]
+        dtind = np.argsort([-d['score'] for d in dts], kind='mergesort')
+        dts = [dts[i] for i in dtind]
+        gtind = np.argsort([g['_ignore'] for g in gts], kind='mergesort')
+        gts = [gts[i] for i in gtind]
+        if len(gts) == 0 or len(dts) == 0:
+            continue
+        if len(dts) > 100:
+            dts = dts[0:100]
+
+        iou_image_anns = ious[image_id, 1]
+        scorem = np.zeros(len(gts))
+        for ann_ind in range(len(iou_image_anns)):
+            iou_dt_gt_array = iou_image_anns[ann_ind]
+            max_iou_gt_ind = np.argmax(iou_dt_gt_array)
+            max_iou = max(iou_dt_gt_array)
+            dt = dts[ann_ind]
+            gt = gts[max_iou_gt_ind]
+
+            if max_iou != 0 and dt['score'] > scorem[max_iou_gt_ind]:
+                scorem[max_iou_gt_ind] = dt['score']
+                image_id_list.append(image_id)
+                image_name_list.append(coco_eval.cocoDt.imgs[image_id]['file_name'])
+                x_list.append(dt['bbox'][0])
+                y_list.append(dt['bbox'][1])
+                w_list.append(dt['bbox'][2])
+                h_list.append(dt['bbox'][3])
+                area_list.append(dt['area'])
+                iou_list.append(max_iou)
+                score_list.append(dt['score'])
+                gt_x_list.append(gt['bbox'][0])
+                gt_y_list.append(gt['bbox'][1])
+                gt_w_list.append(gt['bbox'][2])
+                gt_h_list.append(gt['bbox'][3])
+                gt_area_list.append(gt['area'])
+
+
+    df = pd.DataFrame({'Image id': image_id_list,
+                       'Image name': image_name_list,
+                       'bbox_x': x_list,
+                       'bbox_y': y_list,
+                       'bbox_w': w_list,
+                       'bbox_h': h_list,
+                       'iou': iou_list,
+                       'area': area_list,
+                       'score': score_list,
+                       'gt_bbox_x': gt_x_list,
+                       'gt_bbox_y': gt_y_list,
+                       'gt_bbox_w': gt_w_list,
+                       'gt_bbox_h': gt_h_list,
+                       'gt_area': gt_area_list})
+    columns = ['Image id','Image name','bbox_x','bbox_y', 'bbox_w', 'bbox_h',
+                'area','iou','score','gt_bbox_x','gt_bbox_y','gt_bbox_w','gt_bbox_h','gt_area']
+    df.to_excel(writer, columns=columns)
+    writer.save()
+
+
     if tblogger:
         tblogger.write_scalars({"average_precision": ap_default}, checkpoint_iter)
         tblogger.write_scalars({"average_recall": recall_default}, checkpoint_iter)
