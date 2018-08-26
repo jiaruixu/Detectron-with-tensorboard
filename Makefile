@@ -18,5 +18,5 @@ dev:
 
 .PHONY: clean
 clean:
-	python2 setup.py develop --uninstall $(DEV_USER_FLAG)
+	python2 setup.py develop --uninstall $(DEV_USER_FLAG) 
 	rm -rf build
