@@ -187,6 +187,8 @@ python2 tools/eval.py \
 ```
 ### visualize localization error test
 
+localization_error_test
+
 on GTA
 
 ```
@@ -207,6 +209,69 @@ python2 tools/eval.py \
 	NUM_GPUS 1 \
 	OUTPUT_DIR /mnt/fcav/self_training/object_detection/localization_error_test/eval \
 	2>&1 | tee -a /mnt/fcav/self_training/object_detection/localization_error_test/e2e-eval-KITTI-logs.txt
+```
+
+localization_error_test_no_fn
+
+on GTA
+
+```
+python2 tools/eval.py \
+	--cfg /mnt/fcav/self_training/object_detection/configs/e2e_faster_rcnn_X-101-64x4d-FPN_1x_baseline_localization_error_test_no_fn.yaml \
+	TEST.WEIGHTS /mnt/fcav/self_training/object_detection/localization_error_test_no_fn/train/voc_GTA_caronly_train_sample8000:coco_KITTI_caronly_tp_preds/generalized_rcnn \
+	NUM_GPUS 1 \
+	OUTPUT_DIR /mnt/fcav/self_training/object_detection/localization_error_test_no_fn/eval \
+	2>&1 | tee -a /mnt/fcav/self_training/object_detection/localization_error_test_no_fn/e2e-eval-GTA-logs.txt
+```
+
+on KITTI eval
+
+```
+python2 tools/eval.py \
+	--cfg /mnt/fcav/self_training/object_detection/configs/e2e_faster_rcnn_X-101-64x4d-FPN_1x_baseline_localization_error_test_no_fn_evalKITTI1k.yaml \
+	TEST.WEIGHTS /mnt/fcav/self_training/object_detection/localization_error_test_no_fn/train/voc_GTA_caronly_train_sample8000:coco_KITTI_caronly_tp_preds_no_fn/generalized_rcnn \
+	NUM_GPUS 1 \
+	OUTPUT_DIR /mnt/fcav/self_training/object_detection/localization_error_test_no_fn/eval \
+	2>&1 | tee -a /mnt/fcav/self_training/object_detection/localization_error_test_no_fn/e2e-eval-KITTI-logs.txt
+```
+
+localization_error_test_no_fn_ss_with_10fp
+
+on KITTI eval
+
+```
+python2 tools/eval.py \
+	--cfg /mnt/fcav/self_training/object_detection/configs/e2e_faster_rcnn_X-101-64x4d-FPN_1x_baseline_localization_error_test_no_fn_with_10fp.yaml \
+	TEST.WEIGHTS  \
+	NUM_GPUS 1 \
+	OUTPUT_DIR /mnt/fcav/self_training/object_detection/localization_error_test_no_fn_ss_with_10fp/eval \
+	2>&1 | tee -a /mnt/fcav/self_training/object_detection/localization_error_test_no_fn_ss_with_10fp/e2e-eval-KITTI-logs.txt
+```
+
+localization_error_test_no_fn_ss_with_20fp
+
+on KITTI eval
+
+```
+python2 tools/eval.py \
+	--cfg /mnt/fcav/self_training/object_detection/configs/e2e_faster_rcnn_X-101-64x4d-FPN_1x_baseline_localization_error_test_no_fn_with_20fp.yaml \
+	TEST.WEIGHTS  \
+	NUM_GPUS 1 \
+	OUTPUT_DIR /mnt/fcav/self_training/object_detection/localization_error_test_no_fn_ss_with_20fp/eval \
+	2>&1 | tee -a /mnt/fcav/self_training/object_detection/localization_error_test_no_fn_ss_with_20fp/e2e-eval-KITTI-logs.txt
+```
+
+localization_error_test_no_fn_ss
+
+on KITTI eval
+
+```
+python2 tools/eval.py \
+	--cfg /mnt/fcav/self_training/object_detection/configs/e2e_faster_rcnn_X-101-64x4d-FPN_1x_baseline_localization_error_test_no_fn_evalKITTI1k.yaml \
+	TEST.WEIGHTS /mnt/fcav/self_training/object_detection/localization_error_test_no_fn_ss/train/voc_GTA_caronly_train_sample8000:coco_KITTI_caronly_tp_preds_no_fn/generalized_rcnn \
+	NUM_GPUS 1 \
+	OUTPUT_DIR /mnt/fcav/self_training/object_detection/localization_error_test_no_fn_ss/eval \
+	2>&1 | tee -a /mnt/fcav/self_training/object_detection/localization_error_test_no_fn_ss/e2e-eval-KITTI-logs.txt
 ```
 
 ### visualize baseline_ss_GTA8k_pred
@@ -261,7 +326,7 @@ python2 tools/eval.py \
 tensorboard --logdir=$OUTPUT_DIR
 ```
 
-## evaluate on cityscapes
+## evaluate
 
 lowerbound
 
@@ -291,6 +356,16 @@ python2 tools/test_net.py \
 	TEST.WEIGHTS /mnt/fcav/self_training/object_detection/lowerbound/train/voc_GTA_caronly_train_sample8000/generalized_rcnn/model_iter16999.pkl \
 	NUM_GPUS 1 \
 	OUTPUT_DIR /mnt/fcav/self_training/object_detection/lowerbound/prediction
+```
+
+on KITTI val 1000
+
+```
+python2 tools/test_net.py \
+	--cfg /mnt/fcav/self_training/object_detection/configs/e2e_faster_rcnn_X-101-64x4d-FPN_1x_lowerbound_evalKITTI1000.yaml \
+	TEST.WEIGHTS /mnt/fcav/self_training/object_detection/lowerbound_200k_trainval/train/voc_GTA_caronly_train:voc_GTA_caronly_val/generalized_rcnn/model_final.pkl \
+	NUM_GPUS 1 \
+	OUTPUT_DIR /mnt/fcav/self_training/object_detection/lowerbound_200k_trainval/prediction_final
 ```
 
 upperbound1
@@ -467,6 +542,37 @@ python2 tools/test_net.py \
   NUM_GPUS 1 \
   OUTPUT_DIR /mnt/fcav/self_training/object_detection/region_proposals_GTA200k
 ```
+
+KITTI tp Predictions no fn
+
+```
+python2 tools/test_net.py \
+  --cfg /mnt/fcav/self_training/object_detection/configs/e2e_faster_rcnn_X-101-64x4d-FPN_1x_lowerbound_RPNONLY_KITTI_tp_preds_no_fn.yaml \
+  TEST.WEIGHTS /mnt/fcav/self_training/object_detection/lowerbound_200k_trainval/train/voc_GTA_caronly_train:voc_GTA_caronly_val/generalized_rcnn/model_final.pkl \
+  NUM_GPUS 1 \
+  OUTPUT_DIR /mnt/fcav/self_training/object_detection/region_proposals_GTA200k
+```
+
+KITTI tp Predictions no fn with 10% fp (5605)
+
+```
+python2 tools/test_net.py \
+  --cfg /mnt/fcav/self_training/object_detection/configs/e2e_faster_rcnn_X-101-64x4d-FPN_1x_lowerbound_RPNONLY_KITTI_tp_preds_no_fn_with_10fp.yaml \
+  TEST.WEIGHTS /mnt/fcav/self_training/object_detection/lowerbound_200k_trainval/train/voc_GTA_caronly_train:voc_GTA_caronly_val/generalized_rcnn/model_final.pkl \
+  NUM_GPUS 1 \
+  OUTPUT_DIR /mnt/fcav/self_training/object_detection/region_proposals_GTA200k
+```
+
+KITTI tp Predictions no fn with 20% fp (5635)
+
+```
+python2 tools/test_net.py \
+  --cfg /mnt/fcav/self_training/object_detection/configs/e2e_faster_rcnn_X-101-64x4d-FPN_1x_lowerbound_RPNONLY_KITTI_tp_preds_no_fn_with_20fp.yaml \
+  TEST.WEIGHTS /mnt/fcav/self_training/object_detection/lowerbound_200k_trainval/train/voc_GTA_caronly_train:voc_GTA_caronly_val/generalized_rcnn/model_final.pkl \
+  NUM_GPUS 1 \
+  OUTPUT_DIR /mnt/fcav/self_training/object_detection/region_proposals_GTA200k
+```
+
 ## Transfer prediction to coco format
 
 Predictions are saved as list in json format. This scipt transfer predictions with score >= 0.96 to json format.
